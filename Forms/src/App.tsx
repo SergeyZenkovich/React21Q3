@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import Card from "./Components/Card/Card";
+import Form from "./Components/Form/Form";
 import Serach from "./Components/SearchBar/SearchBar";
 import cardsData from "./Data";
 import {CardInterface} from "./interfaces/ComponentsInterfaces";
@@ -12,20 +13,22 @@ const StyledCardsBlock = styled.div`
 `;
 
 const App = (): JSX.Element => {
-  const Cards = cardsData.map((el: CardInterface) => (
+  const [cards, setCards] = useState([] as CardInterface[]);
+  const addCard = (newCard: CardInterface): void => {
+    setCards([...cards, newCard]);
+  };
+  const Cards = cards.map((el: CardInterface) => (
     <Card
-      key={el.cardName}
-      cardName={el.cardName}
-      cardPrice={el.cardPrice}
-      cardYear={el.cardYear}
-      cardLikes={el.cardLikes}
-      cardRating={el.cardRating}
-      cardImg={el.cardImg}
+      key={el.cardProblem}
+      cardProblem={el.cardProblem}
+      cardDate={el.cardDate}
+      cardPriority={el.cardPriority}
+      cardisRequestNeeded={el.cardisRequestNeeded}
     />
   ));
   return (
     <div>
-      <Serach />
+      <Form addCard={addCard} />
       <StyledCardsBlock>{Cards}</StyledCardsBlock>
     </div>
   );

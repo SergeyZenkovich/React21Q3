@@ -5,47 +5,38 @@ import {CardInterface} from "../../interfaces/ComponentsInterfaces";
 import priceImg from "../../assets/img/price.png";
 import dateImg from "../../assets/img/calendar.png";
 import likeImg from "../../assets/img/like.png";
-import ratingImg from "../../assets/img/star.png";
 
 import {
   StyledCard,
   StyledCardHead,
   StyledCardBody,
   StyledParametersBlock,
-  StyledCardImage,
   StyledCardMiniImg
 } from "./CardsStyling";
 
 const Card = ({
-  cardName,
-  cardPrice,
-  cardYear,
-  cardLikes,
-  cardRating,
-  cardImg
+  cardProblem,
+  cardDate,
+  cardPriority,
+  cardisRequestNeeded
 }: CardInterface): JSX.Element => (
   <StyledCard>
-    <StyledCardHead>
-      <h3>{cardName}</h3>
+    <StyledCardHead priority={cardPriority}>
+      <h3>{cardProblem}</h3>
     </StyledCardHead>
     <StyledCardBody>
-      <StyledCardImage src={cardImg} alt="phoneImage" />
       <StyledParametersBlock>
         <div>
           <StyledCardMiniImg src={priceImg} alt="price logo" />
-          <span>Price: {cardPrice}$</span>
+          <span>Price: {cardDate}$</span>
         </div>
         <div>
           <StyledCardMiniImg src={dateImg} alt="calendar logo" />
-          <span>Release: {cardYear}</span>
+          <span>Release: {cardPriority}</span>
         </div>
         <div>
           <StyledCardMiniImg src={likeImg} alt="like logo" />
-          <span>Likes: {cardLikes}</span>
-        </div>
-        <div>
-          <StyledCardMiniImg src={ratingImg} alt="rating logo" />
-          <span>Rating: {cardRating}</span>
+          <span>Likes: {cardisRequestNeeded ? "Send a feedback" : `Don't send a feedback`}</span>
         </div>
       </StyledParametersBlock>
     </StyledCardBody>

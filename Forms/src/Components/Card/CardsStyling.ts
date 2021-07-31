@@ -30,7 +30,8 @@ export const StyledCardHead = styled.div`
   justify-content: center;
   width: 100%;
   height: 5%;
-  background-color: #bcc2c3;
+  background-color: ${({priority}: {priority: string}) =>
+    priority === "low" ? "#a6cd72" : priority === "medium" ? "#e2d100" : "#b82f34"};
   & h3 {
     color: #fff;
     font-family: 'CardHeadingFont';
