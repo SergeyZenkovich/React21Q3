@@ -24,6 +24,7 @@ const App = (): JSX.Element => {
       cardDate={el.cardDate}
       cardPriority={el.cardPriority}
       cardisRequestNeeded={el.cardisRequestNeeded}
+      production={el.production}
     />
   ));
   return (

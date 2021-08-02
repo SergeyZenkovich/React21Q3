@@ -35,7 +35,7 @@ export const StyledCardHead = styled.div`
   & h3 {
     color: #fff;
     font-family: 'CardHeadingFont';
-    font-size: 1em;
+    font-size: 1.25em;
     margin 2% 0;
   }
 `;
@@ -64,7 +64,7 @@ export const StyledParametersBlock = styled.div`
     width: 98%;
   }
   @media ${device.laptop} {
-    width: 40%;
+    width: 70%;
   }
   & div {
     display: flex;

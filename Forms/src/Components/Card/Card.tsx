@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import {CardInterface} from "../../interfaces/ComponentsInterfaces";
 
-import priceImg from "../../assets/img/price.png";
+import listImg from "../../assets/img/list.png";
 import dateImg from "../../assets/img/calendar.png";
-import likeImg from "../../assets/img/like.png";
+import likeImg from "../../assets/img/feedback.png";
+import prodImg from "../../assets/img/prod.png";
 
 import {
   StyledCard,
@@ -18,7 +19,8 @@ const Card = ({
   cardProblem,
   cardDate,
   cardPriority,
-  cardisRequestNeeded
+  cardisRequestNeeded,
+  production
 }: CardInterface): JSX.Element => (
   <StyledCard>
     <StyledCardHead priority={cardPriority}>
@@ -27,16 +29,20 @@ const Card = ({
     <StyledCardBody>
       <StyledParametersBlock>
         <div>
-          <StyledCardMiniImg src={priceImg} alt="price logo" />
-          <span>Price: {cardDate}$</span>
+          <StyledCardMiniImg src={dateImg} alt="date logo" />
+          <span>Date: {cardDate}</span>
         </div>
         <div>
-          <StyledCardMiniImg src={dateImg} alt="calendar logo" />
-          <span>Release: {cardPriority}</span>
+          <StyledCardMiniImg src={listImg} alt="priority logo" />
+          <span>Priority: {cardPriority}</span>
         </div>
         <div>
           <StyledCardMiniImg src={likeImg} alt="like logo" />
-          <span>Likes: {cardisRequestNeeded ? "Send a feedback" : `Don't send a feedback`}</span>
+          <span>Feedback: {cardisRequestNeeded ? "Send a feedback" : `Don't send a feedback`}</span>
+        </div>
+        <div>
+          <StyledCardMiniImg src={prodImg} alt="production logo" />
+          <span>Production: {production ? "Production" : `Development`}</span>
         </div>
       </StyledParametersBlock>
     </StyledCardBody>
