@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 import {StyledSearchBlock, StyledSearchInput, StyledCardButton} from "./SearchBarStyling";
 
-const Serach = (): JSX.Element => (
+const Serach = ({searchData}: {searchData: () => Promise<void>}): JSX.Element => (
   <StyledSearchBlock>
     <StyledSearchInput placeholder="Iphone X...." />
-    <StyledCardButton>Search</StyledCardButton>
+    <StyledCardButton onClick={searchData}>Search</StyledCardButton>
   </StyledSearchBlock>
 );
 export default Serach;
