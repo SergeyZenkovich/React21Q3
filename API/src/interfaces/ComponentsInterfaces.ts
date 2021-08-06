@@ -3,5 +3,7 @@ export interface CardInterface {
   cardDate: string;
   cardPriority: string;
   cardisRequestNeeded: boolean;
-  production: boolean;
+}
+export interface ImageCardInterface {
+  url: string;
 }

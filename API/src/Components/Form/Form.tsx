@@ -3,8 +3,6 @@ import {CardInterface} from "src/interfaces/ComponentsInterfaces";
 import styled from "styled-components";
 import {findToday} from "../../utils/findToday";
 import {validate, ValidationResult} from "../../utils/validate";
-import fontP from "../../assets/fonts/MavenPro-Regular.ttf";
-import Switcher from "../Switcher/Switcher";
 
 import {
   ErrorBlock,
@@ -22,16 +20,13 @@ const Form = ({addCard}: {addCard: (obj: CardInterface) => void}): JSX.Element =
   const [dateFieldIsValid, setDateFieldIsValid] = useState({valid: true} as ValidationResult);
   const [priority, setPriority] = useState("low");
   const [isFeedback, setIsFeedBack] = useState(true);
-  const [switchState, setSwitchState] = useState(false);
-  const [switcherCheck, setSwitcherCheck] = useState(false);
 
   const makeObject = (): CardInterface => {
     return {
       cardProblem: problemName,
       cardDate: date,
       cardPriority: priority,
-      cardisRequestNeeded: isFeedback,
-      production: switchState
+      cardisRequestNeeded: isFeedback
     };
   };
   const resetForm = (): void => {
@@ -39,8 +34,6 @@ const Form = ({addCard}: {addCard: (obj: CardInterface) => void}): JSX.Element =
     setDate(findToday());
     setPriority("low");
     setIsFeedBack(true);
-    setSwitchState(true);
-    setSwitcherCheck(false);
   };
 
   return (
@@ -95,12 +88,6 @@ const Form = ({addCard}: {addCard: (obj: CardInterface) => void}): JSX.Element =
             }}
           />
           <label>Production or development</label>
-          <Switcher
-            switchState={switchState}
-            setSwitchState={setSwitchState}
-            switcherCheck={switcherCheck}
-            setSwitcherCheck={setSwitcherCheck}
-          />
         </InputsBlock>
 
         <StyledCardButton

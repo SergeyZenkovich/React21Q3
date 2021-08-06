@@ -19,8 +19,7 @@ const Card = ({
   cardProblem,
   cardDate,
   cardPriority,
-  cardisRequestNeeded,
-  production
+  cardisRequestNeeded
 }: CardInterface): JSX.Element => (
   <StyledCard>
     <StyledCardHead priority={cardPriority}>
@@ -39,10 +38,6 @@ const Card = ({
         <div>
           <StyledCardMiniImg src={likeImg} alt="like logo" />
           <span>Feedback: {cardisRequestNeeded ? "Send a feedback" : `Don't send a feedback`}</span>
-        </div>
-        <div>
-          <StyledCardMiniImg src={prodImg} alt="production logo" />
-          <span>Production: {production ? "Production" : `Development`}</span>
         </div>
       </StyledParametersBlock>
     </StyledCardBody>
