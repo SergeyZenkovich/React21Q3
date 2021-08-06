@@ -1,15 +1,39 @@
 import styled from "styled-components";
 import fontP from "../../assets/fonts/MavenPro-Regular.ttf";
 
+export const StyledSerachBlockWithOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 140px;
+  background-color: #000a;
+  margin-bottom: 10px;
+  padding: 0;
+`;
 export const StyledSearchBlock = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 70px;
-  background-color: #000a;
-  margin-bottom: 10px;
   padding: 0;
+`;
+export const StyledoptionsBlock = styled.div`
+  @font-face {
+    font-family: "CardTextFont";
+    src: url(${fontP});
+  }
+  display: flex;
+  justify-content: center;
+
+  & select {
+    margin: 10px 0;
+    height: 40px;
+    font-family: "CardTextFont";
+    font-size: 20px;
+    border: none;
+    outline: none;
+  }
 `;
 export const StyledSearchInput = styled.input`
   @font-face {

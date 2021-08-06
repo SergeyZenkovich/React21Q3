@@ -18,7 +18,7 @@ const Form = ({addCard}: {addCard: (obj: CardInterface) => void}): JSX.Element =
   const [problemFieldIsValid, setProblemFieldIsValid] = useState({valid: true} as ValidationResult);
   const [date, setDate] = useState(findToday());
   const [dateFieldIsValid, setDateFieldIsValid] = useState({valid: true} as ValidationResult);
-  const [priority, setPriority] = useState("low");
+  const [priority, setPriority] = useState("relevant");
   const [isFeedback, setIsFeedBack] = useState(true);
 
   const makeObject = (): CardInterface => {
@@ -72,9 +72,8 @@ const Form = ({addCard}: {addCard: (obj: CardInterface) => void}): JSX.Element =
               setPriority(e.target.value);
             }}
           >
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="urgent">Urgent</option>
+            <option value="relevant">Relevant</option>
+            <option value="latest">Latest</option>
           </select>
           <label>Send me a request</label>
           <input

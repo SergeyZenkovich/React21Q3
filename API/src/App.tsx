@@ -5,6 +5,25 @@ import Serach from "./Components/SearchBar/SearchBar";
 import {CardInterface, ImageCardInterface} from "./interfaces/ComponentsInterfaces";
 import ImageCard from "./Components/ImageCard/ImageCard";
 
+interface URLs {
+  urls?: {
+    full: string;
+    regular: string;
+    small: string;
+    thumb: string;
+  };
+}
+
+class PhotosURLClass {
+  urls: URL = null;
+
+  constructor(...args) {
+    args.forEach((item: PhotosURLClass) => {
+      this.urls = item.urls || null;
+    });
+  }
+}
+
 const StyledCardsBlock = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -30,7 +49,9 @@ const useFetchData = (): [string[], () => Promise<void>] => {
         `https://api.unsplash.com/photos/?client_id=${API_KEY}&orientation=portrait&color=purple&order_by=relevant`
       )
     ).json();
-    const urls = result.map((el) => el.urls.regular);
+    const urls = result.map((el: URLs) => el.urls.regular);
+    const urls2 = new PhotosURLClass(result);
+    console.log(urls2);
     setFetchingElems(urls);
   };
 
