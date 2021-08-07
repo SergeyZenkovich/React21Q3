@@ -24,10 +24,11 @@ export const StyledoptionsBlock = styled.div`
     src: url(${fontP});
   }
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 
   & select {
     margin: 10px 0;
+    padding: 0 10px;
     height: 40px;
     font-family: "CardTextFont";
     font-size: 20px;
