@@ -13,12 +13,14 @@ const Pagination = ({
   totalItemsCount,
   currentPage,
   onPageChanged,
-  portionSize = 10
+  portionSize = 10,
+  setFetchElems
 }: {
   totalItemsCount: number;
   currentPage: number;
   onPageChanged: (pageNumber: number) => void;
   portionSize: number;
+  setFetchElems: (page?: number) => Promise<void>;
 }): JSX.Element => {
   const pages = [];
 
@@ -51,8 +53,9 @@ const Pagination = ({
           return (
             <StyledPaginatonPage
               current={currentPage === p}
-              onClick={(e) => {
+              onClick={() => {
                 onPageChanged(p);
+                setFetchElems(p);
               }}
               value={p}
               key={p}

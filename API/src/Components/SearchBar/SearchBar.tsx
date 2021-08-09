@@ -43,7 +43,6 @@ const Serach = ({
         />
         <StyledCardButton
           onClick={() => {
-            setQuery("");
             searchData();
           }}
         >

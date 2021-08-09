@@ -45,17 +45,18 @@ const useFetchData = (
   currentPage: number,
   elementsOnPage: number,
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
-): [[string[], number], () => Promise<void>] => {
-  console.log(currentPage);
+): [[string[], number], (page?: number) => Promise<void>] => {
   const [fetchingElems, setFetchingElems] = useState([] as string[]);
   const [totalPages, setTotalPages] = useState(0);
   const API_KEY = "usJhdOuMAY8QeXFMb6GhSKgSGbOn5pH7SzDM9NPT-f0";
 
-  const fetchDataAsync = async (): Promise<void> => {
+  const fetchDataAsync = async (page?: number): Promise<void> => {
     setIsLoading(true);
     const result = await (
       await fetch(
-        `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${query}&page=${currentPage}&per_page=${elementsOnPage}&orientation=${orientation}&color=${color}&order_by=${orderBy}`
+        `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${query}&page=${
+          page || currentPage
+        }&per_page=${elementsOnPage}&orientation=${orientation}&color=${color}&order_by=${orderBy}`
       )
     ).json();
     const urls = result.results.map((el: URLs) => el.urls.regular);
@@ -90,8 +91,7 @@ const App = (): JSX.Element => {
     setCurrentPage(pageNumber);
   };
   const searchNewData = (): void => {
-    changePage(1);
-    setFetchElems();
+    setFetchElems(1);
   };
   const ImagesCards = fetchElems[0].map((el: string) => <ImageCard key={el} url={el} />);
   return (
@@ -114,6 +114,7 @@ const App = (): JSX.Element => {
           currentPage={currentPage}
           onPageChanged={changePage}
           portionSize={10}
+          setFetchElems={setFetchElems}
         />
         {fetchElems[0].length >= 1 ? (
           <Selector elementsOnPage={elementsOnPage} setElementsOnPage={setElementsOnPage} />
