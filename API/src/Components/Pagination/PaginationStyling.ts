@@ -7,7 +7,7 @@ import fontPBold from "../../assets/fonts/MavenPro-Bold.ttf";
 export const StyledPaginationBlock = styled.div`
   width: 360px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
 export const StyledPaginatonPage = styled.button`
   @font-face {

@@ -5,25 +5,9 @@ import ImageCard from "./Components/ImageCard/ImageCard";
 import Preloader from "./Components/Preloader/Preloader";
 import Pagination from "./Components/Pagination/Pagination";
 import Selector from "./Components/SelectorForElementsPerPage/SelectorForElementsPerPage";
+import ErrorBlock from "./Components/ErrorComponent/ErrorComponent";
 
-interface URLs {
-  urls?: {
-    full: string;
-    regular: string;
-    small: string;
-    thumb: string;
-  };
-}
-
-class PhotosURLClass {
-  urls: URL = null;
-
-  constructor(...args) {
-    args.forEach((item: PhotosURLClass) => {
-      this.urls = item.urls || null;
-    });
-  }
-}
+import {URLs} from "./interfaces/ComponentsInterfaces";
 
 const StyledCardsBlockWithPagination = styled.div`
   display: flex;
@@ -47,7 +31,7 @@ const useFetchData = (
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
 ): [[string[], number], (page?: number) => Promise<void>] => {
   const [fetchingElems, setFetchingElems] = useState([] as string[]);
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalPages, setTotalPages] = useState(-1);
   const API_KEY = "usJhdOuMAY8QeXFMb6GhSKgSGbOn5pH7SzDM9NPT-f0";
 
   const fetchDataAsync = async (page?: number): Promise<void> => {
@@ -60,7 +44,6 @@ const useFetchData = (
       )
     ).json();
     const urls = result.results.map((el: URLs) => el.urls.regular);
-    const urls2 = new PhotosURLClass(result);
     setFetchingElems(urls);
     setTotalPages(result.total_pages);
     setIsLoading(false);
@@ -91,9 +74,15 @@ const App = (): JSX.Element => {
     setCurrentPage(pageNumber);
   };
   const searchNewData = (): void => {
+    setCurrentPage(1);
     setFetchElems(1);
   };
-  const ImagesCards = fetchElems[0].map((el: string) => <ImageCard key={el} url={el} />);
+  const ImagesCards =
+    fetchElems[1] === 0 ? (
+      <ErrorBlock query={query} />
+    ) : (
+      fetchElems[0].map((el: string) => <ImageCard key={el} url={el} />)
+    );
   return (
     <div>
       <Serach
@@ -109,14 +98,16 @@ const App = (): JSX.Element => {
       />
       <StyledCardsBlockWithPagination>
         <StyledCardsBlock>{isLoading ? <Preloader /> : ImagesCards}</StyledCardsBlock>
-        <Pagination
-          totalItemsCount={fetchElems[1]}
-          currentPage={currentPage}
-          onPageChanged={changePage}
-          portionSize={10}
-          setFetchElems={setFetchElems}
-        />
-        {fetchElems[0].length >= 1 ? (
+        {fetchElems[1] >= 1 ? (
+          <Pagination
+            totalItemsCount={fetchElems[1]}
+            currentPage={currentPage}
+            onPageChanged={changePage}
+            portionSize={10}
+            setFetchElems={setFetchElems}
+          />
+        ) : null}
+        {fetchElems[1] >= 1 ? (
           <Selector elementsOnPage={elementsOnPage} setElementsOnPage={setElementsOnPage} />
         ) : null}
       </StyledCardsBlockWithPagination>
