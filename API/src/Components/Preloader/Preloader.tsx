@@ -2,14 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import loaderImage from "../../assets/img/loader.gif";
-
-const StyledPreloaderBlock = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 70vh;
-`;
+import {StyledPreloaderBlock} from "./PreloaderStyling";
 
 const Preloader = (): JSX.Element => {
   return (

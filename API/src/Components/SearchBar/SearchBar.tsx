@@ -23,7 +23,7 @@ const Serach = ({
 }: {
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
-  searchData: () => Promise<void>;
+  searchData: () => void;
   orderBy: string;
   setOrderBy: React.Dispatch<React.SetStateAction<string>>;
   orientation: string;
