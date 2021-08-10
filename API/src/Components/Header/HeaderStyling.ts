@@ -16,6 +16,10 @@ export const StyledHeaderBlock = styled.header`
 export const StyledNavigation = styled.nav`
   display: flex;
   justify-content: center;
+  padding: 25px 0;
+  & a {
+    text-decoration: none;
+  }
 `;
 export const StyledHeaderElement = styled.div`
   @font-face {
@@ -26,4 +30,5 @@ export const StyledHeaderElement = styled.div`
   margin: 0 10px;
   color: #fff;
   font-family: "CardTextFontBold";
+  text-decoration: ${({activePage}: {activePage: boolean}) => (activePage ? "underline" : "none")};
 `;

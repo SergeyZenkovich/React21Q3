@@ -1,17 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import fontPBold from "../../assets/fonts/MavenPro-Bold.ttf";
 
-const StyledAboutPage = styled.div`
-  @font-face {
-    font-family: "CardTextFontBold";
-    src: url(${fontPBold});
-  }
-  & h3 {
-    font-family: "CardTextFontBold";
-  }
-`;
-const AboutPage = (): JSX.Element => {
+import {StyledAboutPage} from "./AboutPageStyling";
+
+const AboutPage = ({
+  setActivePage
+}: {
+  setActivePage: React.Dispatch<React.SetStateAction<string>>;
+}): JSX.Element => {
+  useEffect(() => {
+    setActivePage("About");
+  }, []);
   return (
     <StyledAboutPage>
       <h3>This is AboutPage</h3>

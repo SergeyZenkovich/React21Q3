@@ -1,11 +1,17 @@
 import React, {useEffect, useState} from "react";
-import {Route, Switch} from "react-router-dom";
+import {Switch, Route, useHistory} from "react-router-dom";
 import styled from "styled-components";
 
-import {URLs} from "./interfaces/ComponentsInterfaces";
 import HomePage from "./Components/HomePage/HomePage";
 import AboutPage from "./Components/AboutPage/AboutPage";
 import Header from "./Components/Header/Header";
+import ErrorBlock from "./Components/ErrorComponent/ErrorComponent";
+
+const MainComponent = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
 
 const App = (): JSX.Element => {
   const [activePage, setActivePage] = useState("Home");
@@ -13,12 +19,13 @@ const App = (): JSX.Element => {
   return (
     <div>
       <Header activePage={activePage} setActivePage={setActivePage} />
-      <main>
+      <MainComponent>
         <Switch>
-          <Route path="/about" render={() => <AboutPage />} />
-          <Route path="/" render={() => <HomePage />} />
+          <Route exact path="/about" render={() => <AboutPage setActivePage={setActivePage} />} />
+          <Route exact path="/" render={() => <HomePage setActivePage={setActivePage} />} />
+          <Route path="/*" render={() => <ErrorBlock />} />
         </Switch>
-      </main>
+      </MainComponent>
     </div>
   );
 };

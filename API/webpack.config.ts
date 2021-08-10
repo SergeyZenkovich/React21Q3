@@ -1,5 +1,6 @@
 import path from "path";
-import webpack, { Configuration } from "webpack";
+import webpack, { Configuration as WebpackConfiguration } from "webpack";
+import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
@@ -8,8 +9,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 require('dotenv').config();
 import ESLintPlugin from 'eslint-webpack-plugin';
+import 'webpack-dev-server';
 
-const esLintPlugin = (isDev) => isDev? [] : [new ESLintPlugin({extensions: ['ts', 'tsx', 'js'], failOnError: true})]; 
+interface Configuration extends WebpackConfiguration {
+    devServer?: WebpackDevServerConfiguration;
+  }
+
+const esLintPlugin = (isDev) => isDev ? [] : [new ESLintPlugin({ extensions: ['ts', 'tsx', 'js'], failOnError: true })];
 
 const webpackConfig = (env): Configuration => ({
     entry: "./src/index.tsx",
@@ -21,10 +27,14 @@ const webpackConfig = (env): Configuration => ({
     output: {
         path: path.join(__dirname, "/dist"),
         filename: "build.js",
+        publicPath: '/',
         assetModuleFilename: 'assets/[hash][ext]'
     },
     experiments: {
         asset: true
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     module: {
         rules: [
@@ -77,11 +87,11 @@ const webpackConfig = (env): Configuration => ({
         new MiniCssExtractPlugin(),
         new CopyPlugin({
             patterns: [
-              { from: 'public' },
+                { from: 'public' },
             ],
-          }),
+        }),
         new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-        new ESLintPlugin({extensions: ['ts', 'tsx', 'js'], failOnError: true, emitError: true})
+        new ESLintPlugin({ extensions: ['ts', 'tsx', 'js'], failOnError: true, emitError: true })
     ],
 
 });

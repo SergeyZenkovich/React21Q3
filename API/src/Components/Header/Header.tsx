@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 import styled from "styled-components";
 
 import {StyledHeaderBlock, StyledNavigation, StyledHeaderElement} from "./HeaderStyling";
@@ -13,7 +14,9 @@ const Header = ({
   setActivePage: React.Dispatch<React.SetStateAction<string>>;
 }): JSX.Element => {
   const NavElements = pagesData.map((el: NavElement) => (
-    <StyledHeaderElement key={el.page}>{el.page}</StyledHeaderElement>
+    <NavLink key={el.page} to={el.link}>
+      <StyledHeaderElement activePage={activePage === el.page}>{el.page}</StyledHeaderElement>
+    </NavLink>
   ));
   return (
     <StyledHeaderBlock>

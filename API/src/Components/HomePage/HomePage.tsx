@@ -8,18 +8,7 @@ import Selector from "../SelectorForElementsPerPage/SelectorForElementsPerPage";
 import ErrorBlock from "../ErrorComponent/ErrorComponent";
 
 import {URLs} from "../../interfaces/ComponentsInterfaces";
-
-const StyledCardsBlockWithPagination = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-const StyledCardsBlock = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-`;
+import {StyledCardsBlockWithPagination, StyledCardsBlock, HomePageBlock} from "./HomePageStyling";
 
 const useFetchData = (
   query: string,
@@ -52,7 +41,11 @@ const useFetchData = (
   return [[fetchingElems, totalPages], fetchDataAsync];
 };
 
-const HomePage = (): JSX.Element => {
+const HomePage = ({
+  setActivePage
+}: {
+  setActivePage: React.Dispatch<React.SetStateAction<string>>;
+}): JSX.Element => {
   const [query, setQuery] = useState("");
   const [orderBy, setOrderBy] = useState("latest");
   const [orientation, setOrientation] = useState("landscape");
@@ -77,6 +70,9 @@ const HomePage = (): JSX.Element => {
     setCurrentPage(1);
     setFetchElems(1);
   };
+  useEffect(() => {
+    setActivePage("Home");
+  }, []);
   const ImagesCards =
     fetchElems[1] === 0 ? (
       <ErrorBlock query={query} />
@@ -84,7 +80,7 @@ const HomePage = (): JSX.Element => {
       fetchElems[0].map((el: string) => <ImageCard key={el} url={el} />)
     );
   return (
-    <div>
+    <HomePageBlock>
       <Serach
         query={query}
         setQuery={setQuery}
@@ -111,7 +107,7 @@ const HomePage = (): JSX.Element => {
           <Selector elementsOnPage={elementsOnPage} setElementsOnPage={setElementsOnPage} />
         ) : null}
       </StyledCardsBlockWithPagination>
-    </div>
+    </HomePageBlock>
   );
 };
 export default HomePage;
