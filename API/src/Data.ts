@@ -40,5 +40,15 @@ const cardsData = [
     cardImg: "./resourceImg/oneplus-9-pro.jpeg"
   }
 ];
+const pagesData = [
+  {
+    page: "Home",
+    link: "/"
+  },
+  {
+    page: "About",
+    link: "/about"
+  }
+];
 
-export default cardsData;
+export default pagesData;

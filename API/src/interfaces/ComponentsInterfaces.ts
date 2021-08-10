@@ -15,3 +15,7 @@ export interface URLs {
     thumb: string;
   };
 }
+export interface NavElement {
+  page: string;
+  link: string;
+}
