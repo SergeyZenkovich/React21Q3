@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {ImageCardInterface} from "../../interfaces/ComponentsInterfaces";
+import {FetchObject, ImageCardInterface} from "../../interfaces/ComponentsInterfaces";
 
 import listImg from "../../assets/img/list.png";
 import dateImg from "../../assets/img/calendar.png";
@@ -9,9 +9,9 @@ import prodImg from "../../assets/img/prod.png";
 
 import {StyledCard} from "./ImageCardStyling";
 
-const ImageCard = ({url}: ImageCardInterface): JSX.Element => (
+const ImageCard = ({id, color, likes, alt_description, user, urls}: FetchObject): JSX.Element => (
   <StyledCard>
-    <img src={url} alt="" />
+    <img src={urls.regular} alt="" />
   </StyledCard>
 );
 export default ImageCard;

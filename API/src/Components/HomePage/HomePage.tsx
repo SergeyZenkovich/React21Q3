@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
+import {EWOULDBLOCK} from "constants";
 import Serach from "../SearchBar/SearchBar";
 import ImageCard from "../ImageCard/ImageCard";
 import Preloader from "../Preloader/Preloader";
@@ -7,7 +8,8 @@ import Pagination from "../Pagination/Pagination";
 import Selector from "../SelectorForElementsPerPage/SelectorForElementsPerPage";
 import ErrorBlock from "../ErrorComponent/ErrorComponent";
 
-import {URLs} from "../../interfaces/ComponentsInterfaces";
+import {URLs, FetchObject} from "../../interfaces/ComponentsInterfaces";
+
 import {StyledCardsBlockWithPagination, StyledCardsBlock, HomePageBlock} from "./HomePageStyling";
 
 const useFetchData = (
@@ -18,8 +20,8 @@ const useFetchData = (
   currentPage: number,
   elementsOnPage: number,
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
-): [[string[], number], (page?: number) => Promise<void>] => {
-  const [fetchingElems, setFetchingElems] = useState([] as string[]);
+): [[FetchObject[], number], (page?: number) => Promise<void>] => {
+  const [fetchingElems, setFetchingElems] = useState([] as FetchObject[]);
   const [totalPages, setTotalPages] = useState(-1);
   const API_KEY = "usJhdOuMAY8QeXFMb6GhSKgSGbOn5pH7SzDM9NPT-f0";
 
@@ -32,8 +34,17 @@ const useFetchData = (
         }&per_page=${elementsOnPage}&orientation=${orientation}&color=${color}&order_by=${orderBy}`
       )
     ).json();
+    console.log(result);
+    const fetchedObjects = result.results.map((el: FetchObject) => ({
+      alt_description: el.alt_description,
+      color: el.color,
+      id: el.id,
+      likes: el.likes,
+      urls: el.urls,
+      user: el.user
+    }));
     const urls = result.results.map((el: URLs) => el.urls.regular);
-    setFetchingElems(urls);
+    setFetchingElems(fetchedObjects);
     setTotalPages(result.total_pages);
     setIsLoading(false);
   };
@@ -77,7 +88,17 @@ const HomePage = ({
     fetchElems[1] === 0 ? (
       <ErrorBlock query={query} />
     ) : (
-      fetchElems[0].map((el: string) => <ImageCard key={el} url={el} />)
+      fetchElems[0].map((el: FetchObject) => (
+        <ImageCard
+          key={el.id}
+          id={el.id}
+          color={el.color}
+          alt_description={el.alt_description}
+          likes={el.likes}
+          user={el.user}
+          urls={el.urls}
+        />
+      ))
     );
   return (
     <HomePageBlock>

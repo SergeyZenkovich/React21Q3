@@ -15,29 +15,24 @@ import {
   StyledCardMiniImg
 } from "./CardsStyling";
 
-const Card = ({
-  cardProblem,
-  cardDate,
-  cardPriority,
-  cardisRequestNeeded
-}: CardInterface): JSX.Element => (
+const Card = (): JSX.Element => (
   <StyledCard>
-    <StyledCardHead priority={cardPriority}>
-      <h3>{cardProblem}</h3>
+    <StyledCardHead>
+      <h3>Winter</h3>
     </StyledCardHead>
     <StyledCardBody>
       <StyledParametersBlock>
         <div>
           <StyledCardMiniImg src={dateImg} alt="date logo" />
-          <span>Date: {cardDate}</span>
+          <span>Date: 05.050.1998</span>
         </div>
         <div>
           <StyledCardMiniImg src={listImg} alt="priority logo" />
-          <span>Priority: {cardPriority}</span>
+          <span>Hight</span>
         </div>
         <div>
           <StyledCardMiniImg src={likeImg} alt="like logo" />
-          <span>Feedback: {cardisRequestNeeded ? "Send a feedback" : `Don't send a feedback`}</span>
+          <span>Yeah</span>
         </div>
       </StyledParametersBlock>
     </StyledCardBody>
