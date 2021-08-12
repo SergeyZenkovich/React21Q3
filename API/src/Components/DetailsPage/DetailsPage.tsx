@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import {FetchObject} from "src/interfaces/ComponentsInterfaces";
+import {motion, AnimatePresence} from "framer-motion";
 import styled from "styled-components";
+
+import {FetchObject} from "src/interfaces/ComponentsInterfaces";
 import fontPBold from "../../assets/fonts/MavenPro-Bold.ttf";
 import Card from "../Card/Card";
-
 import {StyledDetailsPage} from "./DetailsPageStyling";
 
 const useFetchDataByID = (id: string): [FetchObject, () => Promise<void>] => {
@@ -32,7 +33,12 @@ const DetailsPage = ({
     setActivePage("");
   }, [setActivePage, makeFetch]);
   return (
-    <StyledDetailsPage>
+    <StyledDetailsPage
+      as={motion.div}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+    >
       <h3>Details Page</h3>
       <Card {...fetchingElem} />
     </StyledDetailsPage>

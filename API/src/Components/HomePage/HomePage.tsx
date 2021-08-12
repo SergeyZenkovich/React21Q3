@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import {EWOULDBLOCK} from "constants";
+import {motion, AnimatePresence} from "framer-motion";
 import Serach from "../SearchBar/SearchBar";
 import ImageCard from "../ImageCard/ImageCard";
 import Preloader from "../Preloader/Preloader";
@@ -93,7 +93,12 @@ const HomePage = ({
       fetchElems[0].map((el: FetchObject) => <ImageCard key={el.id} id={el.id} urls={el.urls} />)
     );
   return (
-    <HomePageBlock>
+    <HomePageBlock
+      as={motion.div}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+    >
       <Serach
         query={query}
         setQuery={setQuery}

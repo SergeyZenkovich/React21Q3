@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Switch, Route} from "react-router-dom";
 import styled from "styled-components";
+import {motion, AnimatePresence} from "framer-motion";
 
 import HomePage from "./Components/HomePage/HomePage";
 import AboutPage from "./Components/AboutPage/AboutPage";
@@ -23,22 +24,24 @@ const App = (): JSX.Element => {
     <div>
       <Header activePage={activePage} setActivePage={setActivePage} />
       <MainComponent>
-        <Switch>
-          <Route exact path="/about" render={() => <AboutPage setActivePage={setActivePage} />} />
-          <Route
-            exact
-            path="/details/:id"
-            render={() => <DetailsPage setActivePage={setActivePage} />}
-          />
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <HomePage setActivePage={setActivePage} setPageElements={setPageElements} />
-            )}
-          />
-          <Route path="/*" render={() => <ErrorBlock />} />
-        </Switch>
+        <AnimatePresence>
+          <Switch>
+            <Route exact path="/about" render={() => <AboutPage setActivePage={setActivePage} />} />
+            <Route
+              exact
+              path="/details/:id"
+              render={() => <DetailsPage setActivePage={setActivePage} />}
+            />
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <HomePage setActivePage={setActivePage} setPageElements={setPageElements} />
+              )}
+            />
+            <Route path="/*" render={() => <ErrorBlock />} />
+          </Switch>
+        </AnimatePresence>
       </MainComponent>
     </div>
   );

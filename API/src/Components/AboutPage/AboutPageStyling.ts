@@ -9,8 +9,13 @@ export const StyledAboutPage = styled.div`
     src: url(${fontPBold});
   }
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   & h3 {
     font-family: "CardTextFontBold";
+    font-size: 25px;
+  }
+  & img {
+    width: 30%;
   }
 `;
