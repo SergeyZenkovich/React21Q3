@@ -23,7 +23,7 @@ export interface URLs {
     thumb: string;
   };
 }
-interface FetchedURLS {
+export interface FetchedURLS {
   full: string;
   regular: string;
   small: string;

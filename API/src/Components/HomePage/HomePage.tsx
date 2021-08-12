@@ -34,7 +34,6 @@ const useFetchData = (
         }&per_page=${elementsOnPage}&orientation=${orientation}&color=${color}&order_by=${orderBy}`
       )
     ).json();
-    console.log(result);
     const fetchedObjects = result.results.map((el: FetchObject) => ({
       alt_description: el.alt_description,
       color: el.color,
@@ -53,9 +52,11 @@ const useFetchData = (
 };
 
 const HomePage = ({
-  setActivePage
+  setActivePage,
+  setPageElements
 }: {
   setActivePage: React.Dispatch<React.SetStateAction<string>>;
+  setPageElements: React.Dispatch<React.SetStateAction<FetchObject[]>>;
 }): JSX.Element => {
   const [query, setQuery] = useState("");
   const [orderBy, setOrderBy] = useState("latest");
@@ -84,21 +85,12 @@ const HomePage = ({
   useEffect(() => {
     setActivePage("Home");
   }, []);
+  useEffect(() => setPageElements(fetchElems[0]), [fetchElems, setPageElements]);
   const ImagesCards =
     fetchElems[1] === 0 ? (
       <ErrorBlock query={query} />
     ) : (
-      fetchElems[0].map((el: FetchObject) => (
-        <ImageCard
-          key={el.id}
-          id={el.id}
-          color={el.color}
-          alt_description={el.alt_description}
-          likes={el.likes}
-          user={el.user}
-          urls={el.urls}
-        />
-      ))
+      fetchElems[0].map((el: FetchObject) => <ImageCard key={el.id} id={el.id} urls={el.urls} />)
     );
   return (
     <HomePageBlock>

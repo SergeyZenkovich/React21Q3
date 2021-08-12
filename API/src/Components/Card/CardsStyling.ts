@@ -8,18 +8,16 @@ export const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 24%;
+  width: 40%;
   @media ${device.mobileS} {
-    min-width: 160px;
+    min-width: 300px;
   }
   @media ${device.laptop} {
-    min-width: 275px;
+    min-width: 375px;
   }
-  min-width: 160px;
   height: 50%;
-  min-height: 200px;
+  min-height: 400px;
   margin: 15px 5px;
-  border: 1px solid #000;
 `;
 export const StyledCardHead = styled.div`
   @font-face {
@@ -52,6 +50,18 @@ export const StyledCardBody = styled.div`
   width: 100%;
   padding: 10px 0;
   background-color: #f5f8f9;
+`;
+export const StyledSeparatorBlock = styled.div`
+  @font-face {
+    font-family: "CardTextFont";
+    src: url(${fontP});
+  }
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  border-bottom: 2px solid #000;
+  font-family: "CardTextFont";
+  fonxt-size: 22px;
 `;
 export const StyledParametersBlock = styled.div`
   @font-face {

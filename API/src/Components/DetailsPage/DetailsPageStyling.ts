@@ -8,9 +8,10 @@ export const StyledDetailsPage = styled.div`
     font-family: "CardTextFontBold";
     src: url(${fontPBold});
   }
+  width: 100%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
   & h3 {
     font-family: "CardTextFontBold";
     text-align: center;
