@@ -28,7 +28,7 @@ const App = (): JSX.Element => {
           <Route
             exact
             path="/details/:id"
-            render={() => <DetailsPage setActivePage={setActivePage} pageElements={pageElements} />}
+            render={() => <DetailsPage setActivePage={setActivePage} />}
           />
           <Route
             exact

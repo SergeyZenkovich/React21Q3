@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {FetchObject} from "src/interfaces/ComponentsInterfaces";
 import styled from "styled-components";
@@ -7,22 +7,34 @@ import Card from "../Card/Card";
 
 import {StyledDetailsPage} from "./DetailsPageStyling";
 
+const useFetchDataByID = (id: string): [FetchObject, () => Promise<void>] => {
+  const [fetchingElem, setFetchingElem] = useState({} as FetchObject);
+  const API_KEY = "usJhdOuMAY8QeXFMb6GhSKgSGbOn5pH7SzDM9NPT-f0";
+
+  const fetchDataAsync = async (): Promise<void> => {
+    const result = await (
+      await fetch(`https://api.unsplash.com/photos/${id}/?client_id=${API_KEY}`)
+    ).json();
+    setFetchingElem(result);
+  };
+  return [fetchingElem, fetchDataAsync];
+};
+
 const DetailsPage = ({
-  setActivePage,
-  pageElements
+  setActivePage
 }: {
   setActivePage: React.Dispatch<React.SetStateAction<string>>;
-  pageElements: FetchObject[];
 }): JSX.Element => {
   const {id} = useParams<{id?: string}>();
-  const element = pageElements.find((el: FetchObject) => el.id === id);
+  const [fetchingElem, makeFetch] = useFetchDataByID(id);
   useEffect(() => {
+    makeFetch();
     setActivePage("");
-  }, []);
+  }, [setActivePage, makeFetch]);
   return (
     <StyledDetailsPage>
       <h3>Details Page</h3>
-      <Card {...element} />
+      <Card {...fetchingElem} />
     </StyledDetailsPage>
   );
 };
