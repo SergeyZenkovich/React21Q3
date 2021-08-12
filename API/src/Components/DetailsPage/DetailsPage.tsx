@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import {motion, AnimatePresence} from "framer-motion";
+import {motion} from "framer-motion";
 import styled from "styled-components";
 
 import {FetchObject} from "src/interfaces/ComponentsInterfaces";
-import fontPBold from "../../assets/fonts/MavenPro-Bold.ttf";
 import Card from "../Card/Card";
 import {StyledDetailsPage} from "./DetailsPageStyling";
 

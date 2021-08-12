@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styled from "styled-components";
-import {CardInterface, FetchObject} from "../../interfaces/ComponentsInterfaces";
+import {FetchObject} from "../../interfaces/ComponentsInterfaces";
 
 import description from "../../assets/img/description.png";
 import likeImg from "../../assets/img/like.png";

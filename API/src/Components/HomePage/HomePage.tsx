@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import {motion, AnimatePresence} from "framer-motion";
+import {motion} from "framer-motion";
 import Serach from "../SearchBar/SearchBar";
 import ImageCard from "../ImageCard/ImageCard";
 import Preloader from "../Preloader/Preloader";

@@ -13,7 +13,7 @@ const AboutPage = ({
 }): JSX.Element => {
   useEffect(() => {
     setActivePage("About");
-  }, []);
+  }, [setActivePage]);
   return (
     <StyledAboutPage
       as={motion.div}
