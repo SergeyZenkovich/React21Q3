@@ -19,7 +19,7 @@ import {
   HomePageBlock
 } from "../HomePage/HomePageStyling";
 
-const HomePageDuplicate = ({
+const HomePageWithRedux = ({
   homeState,
   setActivePage
 }: {
@@ -30,22 +30,20 @@ const HomePageDuplicate = ({
   const [orderBy, setOrderBy] = useState("latest");
   const [orient, setOrientation] = useState("landscape");
   const [color, setColor] = useState("blue");
-  const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [elementsOnPage, setElementsOnPage] = useState(10);
 
   const changePage = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
-  console.log(homeState);
   const dispatch = useDispatch();
-  const requestData = (onFirstPage: boolean) => {
+  const requestData = (page: number) => {
+    setCurrentPage(page);
     dispatch(
       getFetchedDataThunkCreator({
         query,
         elementsOnPage,
-        onFirstPage,
-        currentPage,
+        page,
         orient,
         color,
         orderBy
@@ -80,12 +78,11 @@ const HomePageDuplicate = ({
         setColor={setColor}
       />
       <StyledCardsBlockWithPagination>
-        <StyledCardsBlock>{isLoading ? <Preloader /> : ImagesCards}</StyledCardsBlock>
+        <StyledCardsBlock>{homeState.isFetching ? <Preloader /> : ImagesCards}</StyledCardsBlock>
         {homeState.totalElementsCount >= 1 ? (
           <Pagination
             totalItemsCount={homeState.totalElementsCount}
             currentPage={currentPage}
-            onPageChanged={changePage}
             portionSize={10}
             setFetchElems={requestData}
           />
@@ -97,4 +94,4 @@ const HomePageDuplicate = ({
     </HomePageBlock>
   );
 };
-export default HomePageDuplicate;
+export default HomePageWithRedux;

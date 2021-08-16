@@ -12,7 +12,10 @@ import {StyledCard} from "./ImageCardStyling";
 
 const ImageCard = ({id, urls}: {id: string; urls: FetchedURLS}): JSX.Element => (
   <StyledCard>
-    <NavLink to={`/details/${id}`}>
+    {/* <NavLink to={`/details/${id}`}>
+      <img src={urls.regular} alt="" />
+    </NavLink> */}
+    <NavLink to={`/detailsDuplication/${id}`}>
       <img src={urls.regular} alt="" />
     </NavLink>
   </StyledCard>

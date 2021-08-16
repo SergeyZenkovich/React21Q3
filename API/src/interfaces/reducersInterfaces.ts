@@ -1,4 +1,6 @@
-import {FetchObject} from "./ComponentsInterfaces";
+import {FetchedURLS, FetchedUser, FetchObject} from "./ComponentsInterfaces";
+
+/// home page reducer
 
 export interface HomePageStateInterface {
   totalElementsCount: number;
@@ -25,3 +27,32 @@ export interface SetElementsAction {
 }
 
 export type FetchActions = LoadingAction | SetTotalCountAction | SetElementsAction;
+
+/// details page reducer
+
+export interface DetailsPageStateInterface {
+  isLoading: boolean;
+  element: {
+    id: string;
+    color: string;
+    alt_description: string;
+    likes: number;
+    urls: FetchedURLS;
+    user: FetchedUser;
+  };
+}
+
+export enum FetchActionsTypeDetails {
+  TOGGLE_FETCHING = "TOGGLE-LOADING",
+  SET_ELEMENT = "SET-ELEMENT"
+}
+
+export interface SetDetailsElementAction {
+  type: FetchActionsTypeDetails.SET_ELEMENT;
+  element: FetchObject;
+}
+export interface LoadingDetailsAction {
+  type: FetchActionsTypeDetails.TOGGLE_FETCHING;
+}
+
+export type DetailsFetchingActions = SetDetailsElementAction | LoadingDetailsAction;

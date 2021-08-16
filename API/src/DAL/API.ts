@@ -1,5 +1,7 @@
+import {FetchObject} from "src/interfaces/ComponentsInterfaces";
 import axios from "axios";
 import {
+  IdParameterInterface,
   QueryParametersInterface,
   RequestResponseInterface
 } from "../interfaces/ComponentsInterfaces";
@@ -32,19 +34,18 @@ const API_KEY = "usJhdOuMAY8QeXFMb6GhSKgSGbOn5pH7SzDM9NPT-f0";
 
 export const getData = async ({
   query,
-  onFirstPage,
-  currentPage,
   elementsOnPage,
+  page,
   orient,
   color,
   orderBy
 }: QueryParametersInterface): Promise<RequestResponseInterface> => {
   const reuslt = await axios.get(
-    `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${query}&page=${
-      onFirstPage ? 1 : currentPage
-    }&per_page=${elementsOnPage}&orientation=${orient}&color=${color}&order_by=${orderBy}`
+    `https://api.unsplash.com/search/photos/?client_id=${API_KEY}&query=${query}&page=${page}&per_page=${elementsOnPage}&orientation=${orient}&color=${color}&order_by=${orderBy}`
   );
-  // eslint-disable-next-line no-debugger
-  debugger;
+  return reuslt.data;
+};
+export const getDataById = async (id: string): Promise<FetchObject> => {
+  const reuslt = await axios.get(`https://api.unsplash.com/photos/${id}/?client_id=${API_KEY}`);
   return reuslt.data;
 };

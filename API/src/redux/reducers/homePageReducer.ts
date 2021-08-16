@@ -3,7 +3,6 @@ import {
   FetchActionsType,
   HomePageStateInterface
 } from "src/interfaces/reducersInterfaces";
-import {FetchObject} from "../../interfaces/ComponentsInterfaces";
 
 const initialState: HomePageStateInterface = {
   totalElementsCount: 0,
@@ -35,10 +34,3 @@ export const homePageReducer = (
       return state;
   }
 };
-
-const toggleFetchingActionCreator = () => ({type: FetchActionsType.TOGGLE_FETCHING});
-const setElements = (elements: FetchObject[]) => ({type: FetchActionsType.SET_ELEMENTS, elements});
-const setTotalCount = (totalCount: number) => ({
-  type: FetchActionsType.SET_TOTAL_COUNT,
-  totalCount
-});

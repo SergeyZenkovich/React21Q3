@@ -85,7 +85,7 @@ const HomePage = ({
   };
   useEffect(() => {
     setActivePage("Home");
-  }, []);
+  }, [setActivePage]);
   useEffect(() => setPageElements(fetchElems[0]), [fetchElems, setPageElements]);
   const ImagesCards =
     fetchElems[1] === 0 ? (
@@ -117,7 +117,6 @@ const HomePage = ({
           <Pagination
             totalItemsCount={fetchElems[1]}
             currentPage={currentPage}
-            onPageChanged={changePage}
             portionSize={10}
             setFetchElems={() => {}}
           />

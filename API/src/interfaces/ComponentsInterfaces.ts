@@ -12,8 +12,8 @@ export interface FetchObject {
   color: string;
   id: string;
   likes: number;
-  urls?: FetchedURLS;
-  user?: FetchedUser;
+  urls: FetchedURLS;
+  user: FetchedUser;
 }
 export interface URLs {
   urls?: {
@@ -29,7 +29,7 @@ export interface FetchedURLS {
   small: string;
   thumb: string;
 }
-interface FetchedUser {
+export interface FetchedUser {
   first_name: string;
   last_name: string;
   location: string;
@@ -45,12 +45,14 @@ export interface NavElement {
 }
 export interface QueryParametersInterface {
   query: string;
-  onFirstPage: boolean;
-  currentPage: number;
+  page: number;
   elementsOnPage: number;
   orient: string;
   color: string;
   orderBy: string;
+}
+export interface IdParameterInterface {
+  id: string;
 }
 export interface RequestResponseInterface {
   results: FetchObject[];

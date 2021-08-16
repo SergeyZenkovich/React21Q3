@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Switch, Route} from "react-router-dom";
 import styled from "styled-components";
 import {motion, AnimatePresence} from "framer-motion";
@@ -10,7 +10,8 @@ import ErrorBlock from "./Components/ErrorComponent/ErrorComponent";
 import DetailsPage from "./Components/DetailsPage/DetailsPage";
 import {FetchObject} from "./interfaces/ComponentsInterfaces";
 import {useTypedSelector} from "./hooks/useTypedSelector";
-import HomePageDuplicate from "./Components/HomePageDuplicate/HomePageDuplicate";
+import HomePageWithRedux from "./Components/HomePageWithRedux/HomePageWithRedux";
+import DetailsPageWithRedux from "./Components/DetailsPageWithRedux/DetailsPageWithRedux";
 
 const MainComponent = styled.div`
   width: 100%;
@@ -21,7 +22,8 @@ const MainComponent = styled.div`
 const App: React.FC = (): JSX.Element => {
   const [activePage, setActivePage] = useState("Home");
   const [pageElements, setPageElements] = useState([] as FetchObject[]);
-  const stateFromSelector = useTypedSelector((state) => state.home);
+  const homeStateFromSelector = useTypedSelector((state) => state.home);
+  const detailsStateFromSelector = useTypedSelector((state) => state.details);
   return (
     <div>
       <Header activePage={activePage} setActivePage={setActivePage} />
@@ -36,9 +38,22 @@ const App: React.FC = (): JSX.Element => {
             />
             <Route
               exact
+              path="/detailsDuplication/:id"
+              render={() => (
+                <DetailsPageWithRedux
+                  detailsState={detailsStateFromSelector}
+                  setActivePage={setActivePage}
+                />
+              )}
+            />
+            <Route
+              exact
               path="/homeDuplication"
               render={() => (
-                <HomePageDuplicate setActivePage={setActivePage} homeState={stateFromSelector} />
+                <HomePageWithRedux
+                  setActivePage={setActivePage}
+                  homeState={homeStateFromSelector}
+                />
               )}
             />
             <Route

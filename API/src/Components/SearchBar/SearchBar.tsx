@@ -23,7 +23,7 @@ const Serach = ({
 }: {
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
-  searchData: (onFirstPage: boolean) => void;
+  searchData: (page: number) => void;
   orderBy: string;
   setOrderBy: React.Dispatch<React.SetStateAction<string>>;
   orient: string;
@@ -43,7 +43,7 @@ const Serach = ({
         />
         <StyledCardButton
           onClick={() => {
-            searchData(true);
+            searchData(1);
           }}
         >
           Search

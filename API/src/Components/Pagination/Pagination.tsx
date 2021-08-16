@@ -12,15 +12,13 @@ import Next from "../../assets/img/next.png";
 const Pagination = ({
   totalItemsCount,
   currentPage,
-  onPageChanged,
   portionSize = 10,
   setFetchElems
 }: {
   totalItemsCount: number;
   currentPage: number;
-  onPageChanged: (pageNumber: number) => void;
   portionSize: number;
-  setFetchElems: (onFirstPage: boolean) => void;
+  setFetchElems: (page: number) => void;
 }): JSX.Element => {
   const pages = [];
 
@@ -39,6 +37,9 @@ const Pagination = ({
   const nextPortion = () => {
     setPortionNumber(portionNumber + 1);
   };
+  const firstPortion = () => {
+    setPortionNumber(1);
+  };
 
   return (
     <StyledPaginationBlock>
@@ -54,8 +55,8 @@ const Pagination = ({
             <StyledPaginatonPage
               current={currentPage === p}
               onClick={() => {
-                onPageChanged(p);
-                setFetchElems(false);
+                firstPortion();
+                setFetchElems(p);
               }}
               value={p}
               key={p}
