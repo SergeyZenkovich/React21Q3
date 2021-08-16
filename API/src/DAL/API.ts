@@ -44,5 +44,7 @@ export const getData = async ({
       onFirstPage ? 1 : currentPage
     }&per_page=${elementsOnPage}&orientation=${orient}&color=${color}&order_by=${orderBy}`
   );
+  // eslint-disable-next-line no-debugger
+  debugger;
   return reuslt.data;
 };

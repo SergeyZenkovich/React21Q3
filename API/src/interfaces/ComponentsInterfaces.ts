@@ -53,6 +53,6 @@ export interface QueryParametersInterface {
   orderBy: string;
 }
 export interface RequestResponseInterface {
-  elements: FetchObject[];
-  totalCount: number;
+  results: FetchObject[];
+  total_pages: number;
 }

@@ -9,7 +9,9 @@ export const getFetchedDataThunkCreator =
   async (dispatch: Dispatch<FetchActions>): Promise<void> => {
     dispatch(toggleFetching());
     const responseData = await getData(params);
-    dispatch(setTotalCount(responseData.totalCount));
-    dispatch(setElements(responseData.elements));
+    // eslint-disable-next-line no-debugger
+    debugger;
+    dispatch(setTotalCount(responseData.total_pages));
+    dispatch(setElements(responseData.results));
     dispatch(toggleFetching());
   };
