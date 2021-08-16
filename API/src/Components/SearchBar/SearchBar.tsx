@@ -16,17 +16,17 @@ const Serach = ({
   searchData,
   orderBy,
   setOrderBy,
-  orientation,
+  orient,
   setOrientation,
   color,
   setColor
 }: {
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
-  searchData: () => void;
+  searchData: (onFirstPage: boolean) => void;
   orderBy: string;
   setOrderBy: React.Dispatch<React.SetStateAction<string>>;
-  orientation: string;
+  orient: string;
   setOrientation: React.Dispatch<React.SetStateAction<string>>;
   color: string;
   setColor: React.Dispatch<React.SetStateAction<string>>;
@@ -43,7 +43,7 @@ const Serach = ({
         />
         <StyledCardButton
           onClick={() => {
-            searchData();
+            searchData(true);
           }}
         >
           Search
@@ -64,7 +64,7 @@ const Serach = ({
         <select
           name="orientation"
           id="orientation"
-          value={orientation}
+          value={orient}
           onChange={(e) => {
             setOrientation(e.target.value);
           }}

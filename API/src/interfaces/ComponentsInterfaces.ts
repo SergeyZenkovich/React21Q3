@@ -43,3 +43,16 @@ export interface NavElement {
   page: string;
   link: string;
 }
+export interface QueryParametersInterface {
+  query: string;
+  onFirstPage: boolean;
+  currentPage: number;
+  elementsOnPage: number;
+  orient: string;
+  color: string;
+  orderBy: string;
+}
+export interface RequestResponseInterface {
+  elements: FetchObject[];
+  totalCount: number;
+}

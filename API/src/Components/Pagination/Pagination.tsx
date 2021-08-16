@@ -20,7 +20,7 @@ const Pagination = ({
   currentPage: number;
   onPageChanged: (pageNumber: number) => void;
   portionSize: number;
-  setFetchElems: (page?: number) => Promise<void>;
+  setFetchElems: (onFirstPage: boolean) => void;
 }): JSX.Element => {
   const pages = [];
 
@@ -55,7 +55,7 @@ const Pagination = ({
               current={currentPage === p}
               onClick={() => {
                 onPageChanged(p);
-                setFetchElems(p);
+                setFetchElems(false);
               }}
               value={p}
               key={p}

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import {motion} from "framer-motion";
+import axios from "axios";
 import Serach from "../SearchBar/SearchBar";
 import ImageCard from "../ImageCard/ImageCard";
 import Preloader from "../Preloader/Preloader";
@@ -105,7 +106,7 @@ const HomePage = ({
         searchData={searchNewData}
         orderBy={orderBy}
         setOrderBy={setOrderBy}
-        orientation={orientation}
+        orient={orientation}
         setOrientation={setOrientation}
         color={color}
         setColor={setColor}
@@ -118,7 +119,7 @@ const HomePage = ({
             currentPage={currentPage}
             onPageChanged={changePage}
             portionSize={10}
-            setFetchElems={setFetchElems}
+            setFetchElems={() => {}}
           />
         ) : null}
         {fetchElems[1] >= 1 ? (

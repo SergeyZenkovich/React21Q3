@@ -9,6 +9,8 @@ import Header from "./Components/Header/Header";
 import ErrorBlock from "./Components/ErrorComponent/ErrorComponent";
 import DetailsPage from "./Components/DetailsPage/DetailsPage";
 import {FetchObject} from "./interfaces/ComponentsInterfaces";
+import {useTypedSelector} from "./hooks/useTypedSelector";
+import HomePageDuplicate from "./Components/HomePageDuplicate/HomePageDuplicate";
 
 const MainComponent = styled.div`
   width: 100%;
@@ -16,10 +18,10 @@ const MainComponent = styled.div`
   justify-content: center;
 `;
 
-const App = (): JSX.Element => {
+const App: React.FC = (): JSX.Element => {
   const [activePage, setActivePage] = useState("Home");
   const [pageElements, setPageElements] = useState([] as FetchObject[]);
-
+  const stateFromSelector = useTypedSelector((state) => state.home);
   return (
     <div>
       <Header activePage={activePage} setActivePage={setActivePage} />
@@ -31,6 +33,13 @@ const App = (): JSX.Element => {
               exact
               path="/details/:id"
               render={() => <DetailsPage setActivePage={setActivePage} />}
+            />
+            <Route
+              exact
+              path="/homeDuplication"
+              render={() => (
+                <HomePageDuplicate setActivePage={setActivePage} homeState={stateFromSelector} />
+              )}
             />
             <Route
               exact
