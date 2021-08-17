@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {FetchObject} from "../../interfaces/ComponentsInterfaces";
+import {DetailsPageStateInterface} from "../../interfaces/reducersInterfaces";
 
 import description from "../../assets/img/description.png";
 import likeImg from "../../assets/img/like.png";
@@ -19,8 +20,13 @@ import {
   StyledCardMiniImg,
   StyledSeparatorBlock
 } from "./CardsStyling";
+import PreloaderForCard from "../PreloaderForCard/PreloaderForCard";
 
-const Card = ({id, color, alt_description, likes, urls, user}: FetchObject): JSX.Element => {
+const Card = ({isLoading, element}: DetailsPageStateInterface): JSX.Element => {
+  const {id, color, alt_description: imageDescription, likes, urls, user} = element;
+  if (isLoading) {
+    return <PreloaderForCard />;
+  }
   return (
     <StyledCard>
       <StyledCardBody>
@@ -28,10 +34,10 @@ const Card = ({id, color, alt_description, likes, urls, user}: FetchObject): JSX
           <StyledParametersBlock>
             <img src={urls.regular} alt="image" />
             <StyledSeparatorBlock>Image info</StyledSeparatorBlock>
-            {alt_description ? (
+            {imageDescription ? (
               <div>
                 <StyledCardMiniImg src={description} alt="description" />
-                <span>{alt_description}</span>
+                <span>{imageDescription}</span>
               </div>
             ) : null}
             <div>

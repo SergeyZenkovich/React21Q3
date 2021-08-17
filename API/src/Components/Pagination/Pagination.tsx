@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import {
   StyledPaginationBlock,
@@ -40,6 +40,9 @@ const Pagination = ({
   const firstPortion = () => {
     setPortionNumber(1);
   };
+  useEffect(() => {
+    if (currentPage === 1) firstPortion();
+  }, [currentPage]);
 
   return (
     <StyledPaginationBlock>
@@ -55,7 +58,6 @@ const Pagination = ({
             <StyledPaginatonPage
               current={currentPage === p}
               onClick={() => {
-                firstPortion();
                 setFetchElems(p);
               }}
               value={p}

@@ -1,6 +1,5 @@
 import {Dispatch} from "redux";
 import {getDataById} from "src/DAL/API";
-import {IdParameterInterface} from "src/interfaces/ComponentsInterfaces";
 import {DetailsFetchingActions} from "src/interfaces/reducersInterfaces";
 import {
   LoadingActionCreator,

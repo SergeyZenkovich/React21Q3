@@ -83,9 +83,9 @@ const HomePage = ({
     setCurrentPage(1);
     setFetchElems(1);
   };
-  useEffect(() => {
-    setActivePage("Home");
-  }, [setActivePage]);
+  // useEffect(() => {
+  //   setActivePage("Home");
+  // }, [setActivePage]);
   useEffect(() => setPageElements(fetchElems[0]), [fetchElems, setPageElements]);
   const ImagesCards =
     fetchElems[1] === 0 ? (

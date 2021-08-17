@@ -39,7 +39,7 @@ const DetailsPage = ({
       exit={{opacity: 0}}
     >
       <h3>Details Page</h3>
-      <Card {...fetchingElem} />
+      {/* <Card {...fetchingElem} /> */}
     </StyledDetailsPage>
   );
 };

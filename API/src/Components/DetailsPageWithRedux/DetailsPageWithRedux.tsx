@@ -4,10 +4,9 @@ import {motion} from "framer-motion";
 import styled from "styled-components";
 
 import {DetailsPageStateInterface} from "src/interfaces/reducersInterfaces";
-import {useDispatch} from "react-redux";
-import {getDataByIDThunkCreator} from "src/redux/Thunks/detailsPageThunks";
 import {StyledDetailsPage} from "../DetailsPage/DetailsPageStyling";
 import Card from "../Card/Card";
+import {useActions} from "../../hooks/useActions";
 
 const DetailsPageWithRedux = ({
   detailsState,
@@ -17,11 +16,11 @@ const DetailsPageWithRedux = ({
   setActivePage: React.Dispatch<React.SetStateAction<string>>;
 }): JSX.Element => {
   const {id} = useParams<{id?: string}>();
-  const dispatch = useDispatch();
+  const {getDataByIDThunkCreator} = useActions();
   useEffect(() => {
-    dispatch(getDataByIDThunkCreator(id));
+    getDataByIDThunkCreator(id);
     setActivePage("");
-  }, [dispatch, id, setActivePage]);
+  }, []);
   return (
     <StyledDetailsPage
       as={motion.div}
@@ -30,7 +29,7 @@ const DetailsPageWithRedux = ({
       exit={{opacity: 0}}
     >
       <h3>Details Page</h3>
-      <Card {...detailsState.element} />
+      <Card {...detailsState} />
     </StyledDetailsPage>
   );
 };

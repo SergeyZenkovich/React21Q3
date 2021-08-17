@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import {motion} from "framer-motion";
 import {HomePageStateInterface} from "src/interfaces/reducersInterfaces";
-import {useDispatch} from "react-redux";
-import {getFetchedDataThunkCreator} from "src/redux/Thunks/homePageThunks";
+import {useActions} from "src/hooks/useActions";
 import Serach from "../SearchBar/SearchBar";
 import ImageCard from "../ImageCard/ImageCard";
 import Preloader from "../Preloader/Preloader";
@@ -26,29 +25,30 @@ const HomePageWithRedux = ({
   homeState: HomePageStateInterface;
   setActivePage: React.Dispatch<React.SetStateAction<string>>;
 }): JSX.Element => {
-  const [query, setQuery] = useState("");
-  const [orderBy, setOrderBy] = useState("latest");
-  const [orient, setOrientation] = useState("landscape");
-  const [color, setColor] = useState("blue");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [elementsOnPage, setElementsOnPage] = useState(10);
+  const {query, orient, orderBy, color, page, elementsOnPage} = homeState.requestParams;
 
-  const changePage = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
-  const dispatch = useDispatch();
-  const requestData = (page: number) => {
-    setCurrentPage(page);
-    dispatch(
-      getFetchedDataThunkCreator({
-        query,
-        elementsOnPage,
-        page,
-        orient,
-        color,
-        orderBy
-      })
-    );
+  useEffect(() => {
+    setActivePage("Home");
+  }, []);
+  const {
+    getFetchedDataThunkCreator,
+    setRequestPageParam,
+    setRequestElementsOnPage,
+    setRequestQueryParam,
+    setRequestOrientParam,
+    setRequestOrderParam,
+    setRequestColorParam
+  } = useActions();
+  const requestData = (pageNumber: number) => {
+    setRequestPageParam(pageNumber);
+    getFetchedDataThunkCreator({
+      query,
+      elementsOnPage,
+      page: pageNumber,
+      orient,
+      color,
+      orderBy
+    });
   };
 
   const ImagesCards =
@@ -68,27 +68,27 @@ const HomePageWithRedux = ({
     >
       <Serach
         query={query}
-        setQuery={setQuery}
+        setQuery={setRequestQueryParam}
         searchData={requestData}
         orderBy={orderBy}
-        setOrderBy={setOrderBy}
+        setOrderBy={setRequestOrderParam}
         orient={orient}
-        setOrientation={setOrientation}
+        setOrientation={setRequestOrientParam}
         color={color}
-        setColor={setColor}
+        setColor={setRequestColorParam}
       />
       <StyledCardsBlockWithPagination>
         <StyledCardsBlock>{homeState.isFetching ? <Preloader /> : ImagesCards}</StyledCardsBlock>
         {homeState.totalElementsCount >= 1 ? (
           <Pagination
             totalItemsCount={homeState.totalElementsCount}
-            currentPage={currentPage}
+            currentPage={page}
             portionSize={10}
             setFetchElems={requestData}
           />
         ) : null}
         {homeState.totalElementsCount >= 1 ? (
-          <Selector elementsOnPage={elementsOnPage} setElementsOnPage={setElementsOnPage} />
+          <Selector elementsOnPage={elementsOnPage} setElementsOnPage={setRequestElementsOnPage} />
         ) : null}
       </StyledCardsBlockWithPagination>
     </HomePageBlock>

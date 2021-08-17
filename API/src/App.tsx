@@ -33,12 +33,19 @@ const App: React.FC = (): JSX.Element => {
             <Route exact path="/about" render={() => <AboutPage setActivePage={setActivePage} />} />
             <Route
               exact
-              path="/details/:id"
+              path="/detailsDuplication/:id "
               render={() => <DetailsPage setActivePage={setActivePage} />}
             />
             <Route
               exact
-              path="/detailsDuplication/:id"
+              path="/homeDuplication"
+              render={() => (
+                <HomePage setActivePage={setActivePage} setPageElements={setPageElements} />
+              )}
+            />
+            <Route
+              exact
+              path="/details/:id"
               render={() => (
                 <DetailsPageWithRedux
                   detailsState={detailsStateFromSelector}
@@ -48,19 +55,12 @@ const App: React.FC = (): JSX.Element => {
             />
             <Route
               exact
-              path="/homeDuplication"
+              path="/"
               render={() => (
                 <HomePageWithRedux
                   setActivePage={setActivePage}
                   homeState={homeStateFromSelector}
                 />
-              )}
-            />
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <HomePage setActivePage={setActivePage} setPageElements={setPageElements} />
               )}
             />
             <Route path="/*" render={() => <ErrorBlock />} />

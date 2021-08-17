@@ -5,9 +5,17 @@ import {
 } from "src/interfaces/reducersInterfaces";
 
 const initialState: HomePageStateInterface = {
-  totalElementsCount: 0,
+  totalElementsCount: -1,
   elements: [],
-  isFetching: false
+  isFetching: false,
+  requestParams: {
+    query: "",
+    orderBy: "latest",
+    orient: "landscape",
+    color: "blue",
+    page: 1,
+    elementsOnPage: 10
+  }
 };
 
 export const homePageReducer = (
@@ -29,6 +37,54 @@ export const homePageReducer = (
       return {
         ...state,
         totalElementsCount: action.totalCount
+      };
+    case FetchActionsType.SET_PAGE_PARAM:
+      return {
+        ...state,
+        requestParams: {
+          ...state.requestParams,
+          page: action.page
+        }
+      };
+    case FetchActionsType.SET_QUERY_PARAM:
+      return {
+        ...state,
+        requestParams: {
+          ...state.requestParams,
+          query: action.query
+        }
+      };
+    case FetchActionsType.SET_OREDER_BY_PARAM:
+      return {
+        ...state,
+        requestParams: {
+          ...state.requestParams,
+          orderBy: action.orderBy
+        }
+      };
+    case FetchActionsType.SET_ORIENT_PARAM:
+      return {
+        ...state,
+        requestParams: {
+          ...state.requestParams,
+          orient: action.orient
+        }
+      };
+    case FetchActionsType.SET_COLOR_PARAM:
+      return {
+        ...state,
+        requestParams: {
+          ...state.requestParams,
+          color: action.color
+        }
+      };
+    case FetchActionsType.SET_ELEMENTS_ON_PAGE_PARAM:
+      return {
+        ...state,
+        requestParams: {
+          ...state.requestParams,
+          elementsOnPage: action.elementsOnPage
+        }
       };
     default:
       return state;
