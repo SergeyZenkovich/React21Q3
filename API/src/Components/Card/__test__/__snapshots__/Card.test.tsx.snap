@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutPage Component matches shapshot 1`] = `
+<div
+  className="sc-bdnxRM hLCZwY"
+>
+  <div
+    className="sc-dlnjwi prOzi"
+  >
+    <div
+      className="sc-eCApnc fjVtwF"
+    >
+      <img
+        alt="image"
+        src="regularTest"
+      />
+      <div
+        className="sc-hKFxyN OyYCP"
+      >
+        Image info
+      </div>
+      <div>
+        <img
+          alt="description"
+          className="sc-gKAaRy bCHXzi"
+          src="test-file-stub"
+        />
+        <span>
+          test description
+        </span>
+      </div>
+      <div>
+        <img
+          alt="like logo"
+          className="sc-gKAaRy bCHXzi"
+          src="test-file-stub"
+        />
+        <span>
+          0
+        </span>
+      </div>
+      <div
+        className="sc-hKFxyN OyYCP"
+      >
+        User info
+      </div>
+      <div>
+        <img
+          alt="priority logo"
+          className="sc-gKAaRy bCHXzi"
+          src="test-file-stub"
+        />
+        <span>
+          testUserName
+        </span>
+      </div>
+      <div>
+        <img
+          alt="priority logo"
+          className="sc-gKAaRy bCHXzi"
+          src="test-file-stub"
+        />
+        <span>
+          testLocation
+        </span>
+      </div>
+      <div>
+        <img
+          alt="priority logo"
+          className="sc-gKAaRy bCHXzi"
+          src="test-file-stub"
+        />
+        <span>
+          testTwitter
+        </span>
+      </div>
+      <div>
+        <img
+          alt="priority logo"
+          className="sc-gKAaRy bCHXzi"
+          src="test-file-stub"
+        />
+        <span>
+          testIntagram
+        </span>
+      </div>
+      <div>
+        <img
+          alt="priority logo"
+          className="sc-gKAaRy bCHXzi"
+          src="test-file-stub"
+        />
+        <span>
+          1
+        </span>
+      </div>
+      <div>
+        <img
+          alt="priority logo"
+          className="sc-gKAaRy bCHXzi"
+          src="test-file-stub"
+        />
+        <span>
+          1
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
