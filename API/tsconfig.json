@@ -30,6 +30,6 @@
     "./src/",
     "./webpack.config.ts",
     "./declarations.d.ts",
-    "types"
+    "types",
   ]
 }

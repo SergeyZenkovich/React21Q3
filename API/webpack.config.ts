@@ -47,6 +47,14 @@ const webpackConfig = (env): Configuration => ({
                 exclude: /dist/
             },
             {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {
+                  cacheDirectory: true,
+                },
+              },
+            {
                 test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
                 type: 'asset/resource',
                 generator: {
