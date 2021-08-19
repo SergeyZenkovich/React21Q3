@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
+import styled from "styled-components";
 import {act} from "react-dom/test-utils";
 import PreloaderForCard from "src/Components/PreloaderForCard/PreloaderForCard";
 import App from "../../../App";
 import Card from "../Card";
+import {StyledParametersBlock} from "../CardsStyling";
 
 const testObject = {
   isLoading: false,
@@ -57,13 +59,20 @@ const testObject2 = {
   }
 };
 
-it("renders without crashing", () => {
+it("renders img inside Card block without crashing", () => {
   const container = document.createElement("div");
   ReactDOM.render(<Card {...testObject}></Card>, container);
-
   expect(container.querySelector("img").src).toBe(
     `http://localhost/${testObject.element.urls.regular}`
   );
+});
+
+it("renders inner styledComponentns div", () => {
+  const container = document.createElement("div");
+  ReactDOM.render(<Card {...testObject}></Card>, container);
+  const innerBlockClassName = StyledParametersBlock.styledComponentId;
+  const innerBlock = container.querySelector(`.${innerBlockClassName}`);
+  expect(container.contains(innerBlock)).toBeTruthy();
 });
 
 it("render preloader if loading", () => {
@@ -72,7 +81,7 @@ it("render preloader if loading", () => {
   expect(container.querySelector("img").alt).toBe(`gifLoader`);
 });
 
-describe("AboutPage Component", () => {
+describe("Card Component", () => {
   const setFunction = jest.fn();
   let container;
   beforeEach(() => {

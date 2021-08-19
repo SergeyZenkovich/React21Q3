@@ -19,24 +19,24 @@ export const StyledCard = styled.div`
   min-height: 400px;
   margin: 15px 5px;
 `;
-export const StyledCardHead = styled.div`
-  @font-face {
-  font-family: "CardHeadingFont";
-    src: url(${fontH})
-}
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 5%;
-  background-color: ${({priority}: {priority: string}) =>
-    priority === "low" ? "#a6cd72" : priority === "medium" ? "#e2d100" : "#b82f34"};
-  & h3 {
-    color: #fff;
-    font-family: 'CardHeadingFont';
-    font-size: 1.25em;
-    margin 2% 0;
-  }
-`;
+// export const StyledCardHead = styled.div`
+//   @font-face {
+//   font-family: "CardHeadingFont";
+//     src: url(${fontH})
+// }
+//   display: flex;
+//   justify-content: center;
+//   width: 100%;
+//   height: 5%;
+//   background-color: ${({priority}: {priority: string}) =>
+//     priority === "low" ? "#a6cd72" : priority === "medium" ? "#e2d100" : "#b82f34"};
+//   & h3 {
+//     color: #fff;
+//     font-family: 'CardHeadingFont';
+//     font-size: 1.25em;
+//     margin 2% 0;
+//   }
+// `;
 export const StyledCardBody = styled.div`
   display: flex;
   @media ${device.mobileS} {

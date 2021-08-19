@@ -1,28 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AboutPage Component matches shapshot 1`] = `
+exports[`Card Component matches shapshot 1`] = `
 <div
   className="sc-bdnxRM hLCZwY"
 >
   <div
-    className="sc-dlnjwi prOzi"
+    className="sc-gtsrHT ccuSmW"
   >
     <div
-      className="sc-eCApnc fjVtwF"
+      className="sc-hKFxyN deOwSh"
     >
       <img
         alt="image"
         src="regularTest"
       />
       <div
-        className="sc-hKFxyN OyYCP"
+        className="sc-dlnjwi cuMsqH"
       >
         Image info
       </div>
       <div>
         <img
           alt="description"
-          className="sc-gKAaRy bCHXzi"
+          className="sc-jSFjdj gJUICa"
           src="test-file-stub"
         />
         <span>
@@ -32,7 +32,7 @@ exports[`AboutPage Component matches shapshot 1`] = `
       <div>
         <img
           alt="like logo"
-          className="sc-gKAaRy bCHXzi"
+          className="sc-jSFjdj gJUICa"
           src="test-file-stub"
         />
         <span>
@@ -40,14 +40,14 @@ exports[`AboutPage Component matches shapshot 1`] = `
         </span>
       </div>
       <div
-        className="sc-hKFxyN OyYCP"
+        className="sc-dlnjwi cuMsqH"
       >
         User info
       </div>
       <div>
         <img
           alt="priority logo"
-          className="sc-gKAaRy bCHXzi"
+          className="sc-jSFjdj gJUICa"
           src="test-file-stub"
         />
         <span>
@@ -57,7 +57,7 @@ exports[`AboutPage Component matches shapshot 1`] = `
       <div>
         <img
           alt="priority logo"
-          className="sc-gKAaRy bCHXzi"
+          className="sc-jSFjdj gJUICa"
           src="test-file-stub"
         />
         <span>
@@ -67,7 +67,7 @@ exports[`AboutPage Component matches shapshot 1`] = `
       <div>
         <img
           alt="priority logo"
-          className="sc-gKAaRy bCHXzi"
+          className="sc-jSFjdj gJUICa"
           src="test-file-stub"
         />
         <span>
@@ -77,7 +77,7 @@ exports[`AboutPage Component matches shapshot 1`] = `
       <div>
         <img
           alt="priority logo"
-          className="sc-gKAaRy bCHXzi"
+          className="sc-jSFjdj gJUICa"
           src="test-file-stub"
         />
         <span>
@@ -87,7 +87,7 @@ exports[`AboutPage Component matches shapshot 1`] = `
       <div>
         <img
           alt="priority logo"
-          className="sc-gKAaRy bCHXzi"
+          className="sc-jSFjdj gJUICa"
           src="test-file-stub"
         />
         <span>
@@ -97,7 +97,7 @@ exports[`AboutPage Component matches shapshot 1`] = `
       <div>
         <img
           alt="priority logo"
-          className="sc-gKAaRy bCHXzi"
+          className="sc-jSFjdj gJUICa"
           src="test-file-stub"
         />
         <span>
