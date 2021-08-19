@@ -19,7 +19,9 @@ exports[`Card Component matches shapshot 1`] = `
       >
         Image info
       </div>
-      <div>
+      <div
+        className="descriptionBlock"
+      >
         <img
           alt="description"
           className="sc-jSFjdj gJUICa"
@@ -44,7 +46,9 @@ exports[`Card Component matches shapshot 1`] = `
       >
         User info
       </div>
-      <div>
+      <div
+        className="userNameBlock"
+      >
         <img
           alt="priority logo"
           className="sc-jSFjdj gJUICa"
@@ -54,7 +58,9 @@ exports[`Card Component matches shapshot 1`] = `
           testUserName
         </span>
       </div>
-      <div>
+      <div
+        className="userLocationBlock"
+      >
         <img
           alt="priority logo"
           className="sc-jSFjdj gJUICa"
@@ -64,7 +70,9 @@ exports[`Card Component matches shapshot 1`] = `
           testLocation
         </span>
       </div>
-      <div>
+      <div
+        className="twitterBlock"
+      >
         <img
           alt="priority logo"
           className="sc-jSFjdj gJUICa"
@@ -74,7 +82,9 @@ exports[`Card Component matches shapshot 1`] = `
           testTwitter
         </span>
       </div>
-      <div>
+      <div
+        className="intagramBlock"
+      >
         <img
           alt="priority logo"
           className="sc-jSFjdj gJUICa"
@@ -84,7 +94,9 @@ exports[`Card Component matches shapshot 1`] = `
           testIntagram
         </span>
       </div>
-      <div>
+      <div
+        className="totalPhotosBlock"
+      >
         <img
           alt="priority logo"
           className="sc-jSFjdj gJUICa"
@@ -94,14 +106,16 @@ exports[`Card Component matches shapshot 1`] = `
           1
         </span>
       </div>
-      <div>
+      <div
+        className="totalBlock"
+      >
         <img
           alt="priority logo"
           className="sc-jSFjdj gJUICa"
           src="test-file-stub"
         />
         <span>
-          1
+          10
         </span>
       </div>
     </div>

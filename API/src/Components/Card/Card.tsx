@@ -35,7 +35,7 @@ const Card = ({isLoading, element}: DetailsPageStateInterface): JSX.Element => {
             <img src={urls.regular} alt="image" />
             <StyledSeparatorBlock>Image info</StyledSeparatorBlock>
             {imageDescription ? (
-              <div>
+              <div className="descriptionBlock">
                 <StyledCardMiniImg src={description} alt="description" />
                 <span>{imageDescription}</span>
               </div>
@@ -46,37 +46,37 @@ const Card = ({isLoading, element}: DetailsPageStateInterface): JSX.Element => {
             </div>
             <StyledSeparatorBlock>User info</StyledSeparatorBlock>
             {user.username ? (
-              <div>
+              <div className="userNameBlock">
                 <StyledCardMiniImg src={name} alt="priority logo" />
                 <span>{user.username}</span>
               </div>
             ) : null}
             {user.location ? (
-              <div>
+              <div className="userLocationBlock">
                 <StyledCardMiniImg src={place} alt="priority logo" />
                 <span>{user.location}</span>
               </div>
             ) : null}
             {user.twitter_username ? (
-              <div>
+              <div className="twitterBlock">
                 <StyledCardMiniImg src={tw} alt="priority logo" />
                 <span>{user.twitter_username}</span>
               </div>
             ) : null}
             {user.instagram_username ? (
-              <div>
+              <div className="intagramBlock">
                 <StyledCardMiniImg src={inst} alt="priority logo" />
                 <span>{user.instagram_username}</span>
               </div>
             ) : null}
             {user.total_photos ? (
-              <div>
+              <div className="totalPhotosBlock">
                 <StyledCardMiniImg src={photos} alt="priority logo" />
                 <span>{user.total_photos}</span>
               </div>
             ) : null}
             {user.total_likes ? (
-              <div>
+              <div className="totalBlock">
                 <StyledCardMiniImg src={heart} alt="priority logo" />
                 <span>{user.total_likes}</span>
               </div>
