@@ -1,4 +1,4 @@
-import {FetchObject, QueryParametersInterface} from "src/interfaces/ComponentsInterfaces";
+import {FetchObject, QueryParametersInterface} from "../../interfaces/ComponentsInterfaces";
 import {
   FetchActionsType,
   LoadingAction,
@@ -10,7 +10,7 @@ import {
   SetPageParamAction,
   SetQueryParamAction,
   SetTotalCountAction
-} from "src/interfaces/reducersInterfaces";
+} from "../../interfaces/reducersInterfaces";
 
 export const toggleFetching = (): LoadingAction => ({
   type: FetchActionsType.TOGGLE_FETCHING

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutPage Component matches shapshot 1`] = `
+<div
+  className="sc-bdnxRM dYoKXS"
+>
+  <h4>
+    Sorry no results found for 
+    Car
+  </h4>
+  <img
+    alt="no results img"
+    src="test-file-stub"
+  />
+</div>
+`;

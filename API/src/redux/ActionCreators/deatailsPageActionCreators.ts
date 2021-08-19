@@ -1,9 +1,9 @@
-import {FetchObject} from "src/interfaces/ComponentsInterfaces";
+import {FetchObject} from "../../interfaces/ComponentsInterfaces";
 import {
   FetchActionsTypeDetails,
   LoadingDetailsAction,
   SetDetailsElementAction
-} from "src/interfaces/reducersInterfaces";
+} from "../../interfaces/reducersInterfaces";
 
 export const LoadingActionCreator = (): LoadingDetailsAction => ({
   type: FetchActionsTypeDetails.TOGGLE_FETCHING

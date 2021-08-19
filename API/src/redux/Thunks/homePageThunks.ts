@@ -1,6 +1,6 @@
-import {getData} from "src/DAL/API";
 import {Dispatch} from "redux";
-import {FetchActions} from "src/interfaces/reducersInterfaces";
+import {FetchActions} from "../../interfaces/reducersInterfaces";
+import {getData} from "../../DAL/API";
 import {setElements, setTotalCount, toggleFetching} from "../ActionCreators/homePageActionCreators";
 import {QueryParametersInterface} from "../../interfaces/ComponentsInterfaces";
 
