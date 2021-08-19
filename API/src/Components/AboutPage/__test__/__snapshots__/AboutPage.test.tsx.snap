@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutPage Component matches shapshot 1`] = `
+<div
+  className="sc-bdnxRM juTZgK"
+  style={
+    Object {
+      "opacity": 0,
+    }
+  }
+>
+  <h3>
+    This is AboutPage
+  </h3>
+  <img
+    alt=""
+    src="test-file-stub"
+  />
+</div>
+`;

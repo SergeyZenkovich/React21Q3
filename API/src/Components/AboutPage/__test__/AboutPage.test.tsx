@@ -1,13 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom";
-import {act} from 'react-dom/test-utils';
+import renderer from "react-test-renderer";
+import {act} from "react-dom/test-utils";
 import AboutPage from "../AboutPage";
+import App from "../../../App";
 
 it("renders without crashing", () => {
   const container = document.createElement("div");
-act(()=>{
   ReactDOM.render(<AboutPage setActivePage={() => {}}></AboutPage>, container);
+
+  expect(container.querySelector("h3").textContent).toBe("This is AboutPage");
 });
-  const header = container.querySelector("h3");
-  expect(header.textContent).toBe("This is AboutPag");
+
+describe("AboutPage Component", () => {
+  const setFunction = jest.fn();
+  let container;
+  beforeEach(() => {
+    container = renderer.create(<AboutPage setActivePage={setFunction}></AboutPage>);
+  });
+  it("matches shapshot", () => {
+    const tree = container.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("useEffect Fires Once", () => {
+    expect(setFunction).toBeCalledTimes(1);
+  });
 });

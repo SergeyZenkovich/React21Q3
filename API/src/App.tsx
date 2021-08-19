@@ -18,7 +18,6 @@ const MainComponent = styled.div`
   display: flex;
   justify-content: center;
 `;
-
 const App: React.FC = (): JSX.Element => {
   const [activePage, setActivePage] = useState("Home");
   const [pageElements, setPageElements] = useState([] as FetchObject[]);
