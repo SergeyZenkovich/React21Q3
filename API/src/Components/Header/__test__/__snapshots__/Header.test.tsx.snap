@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component matches shapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: 70px;
+  background-color: #000a;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 25px 0;
+}
+
+.c1 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2 {
+  width: 100px;
+  margin: 0 10px;
+  color: #fff;
+  font-family: "CardTextFontBold";
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c3 {
+  width: 100px;
+  margin: 0 10px;
+  color: #fff;
+  font-family: "CardTextFontBold";
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<header
+  className="c0"
+>
+  <nav
+    className="c1"
+  >
+    <a
+      aria-current="page"
+      className="active"
+      href="#/"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      <div
+        className="c2"
+      >
+        Home
+      </div>
+    </a>
+    <a
+      aria-current={null}
+      href="#/about"
+      onClick={[Function]}
+    >
+      <div
+        className="c3"
+      >
+        About
+      </div>
+    </a>
+  </nav>
+</header>
+`;
+
+exports[`corectly render header elements with active styles 1`] = `
+.c0 {
+  width: 100px;
+  margin: 0 10px;
+  color: #fff;
+  font-family: "CardTextFontBold";
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`corectly render header elements without active styles 1`] = `
+.c0 {
+  width: 100px;
+  margin: 0 10px;
+  color: #fff;
+  font-family: "CardTextFontBold";
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<div
+  className="c0"
+/>
+`;

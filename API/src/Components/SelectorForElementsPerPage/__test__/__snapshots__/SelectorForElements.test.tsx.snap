@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Selector Component matches shapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 h5 {
+  margin: 0;
+  padding: 0;
+  font-family: "CardTextFont";
+  font-size: 21px;
+}
+
+.c0 select {
+  margin: 0;
+  padding: 0 10px;
+  height: 40px;
+  font-family: "CardTextFont";
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+<div
+  className="c0"
+>
+  <h5>
+    Elemetns per page:
+  </h5>
+  <select
+    id="resultsCount"
+    name="resultsCount"
+    onChange={[Function]}
+    value={10}
+  >
+    <option
+      value="2"
+    >
+      2
+    </option>
+    <option
+      value="5"
+    >
+      5
+    </option>
+    <option
+      value="8"
+    >
+      8
+    </option>
+    <option
+      value="10"
+    >
+      10
+    </option>
+  </select>
+</div>
+`;

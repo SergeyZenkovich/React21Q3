@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Component matches shapshot 1`] = `
+<div
+  className="sc-bdnxRM hLCZwY"
+>
+  <div
+    className="sc-gtsrHT ccuSmW"
+  >
+    <div
+      className="sc-hKFxyN deOwSh"
+    >
+      <img
+        alt="image"
+        src="regularTest"
+      />
+      <div
+        className="sc-dlnjwi cuMsqH"
+      >
+        Image info
+      </div>
+      <div
+        className="descriptionBlock"
+      >
+        <img
+          alt="description"
+          className="sc-jSFjdj gJUICa"
+          src="test-file-stub"
+        />
+        <span>
+          test description
+        </span>
+      </div>
+      <div>
+        <img
+          alt="like logo"
+          className="sc-jSFjdj gJUICa"
+          src="test-file-stub"
+        />
+        <span>
+          0
+        </span>
+      </div>
+      <div
+        className="sc-dlnjwi cuMsqH"
+      >
+        User info
+      </div>
+      <div
+        className="userNameBlock"
+      >
+        <img
+          alt="priority logo"
+          className="sc-jSFjdj gJUICa"
+          src="test-file-stub"
+        />
+        <span>
+          testUserName
+        </span>
+      </div>
+      <div
+        className="userLocationBlock"
+      >
+        <img
+          alt="priority logo"
+          className="sc-jSFjdj gJUICa"
+          src="test-file-stub"
+        />
+        <span>
+          testLocation
+        </span>
+      </div>
+      <div
+        className="twitterBlock"
+      >
+        <img
+          alt="priority logo"
+          className="sc-jSFjdj gJUICa"
+          src="test-file-stub"
+        />
+        <span>
+          testTwitter
+        </span>
+      </div>
+      <div
+        className="intagramBlock"
+      >
+        <img
+          alt="priority logo"
+          className="sc-jSFjdj gJUICa"
+          src="test-file-stub"
+        />
+        <span>
+          testIntagram
+        </span>
+      </div>
+      <div
+        className="totalPhotosBlock"
+      >
+        <img
+          alt="priority logo"
+          className="sc-jSFjdj gJUICa"
+          src="test-file-stub"
+        />
+        <span>
+          1
+        </span>
+      </div>
+      <div
+        className="totalBlock"
+      >
+        <img
+          alt="priority logo"
+          className="sc-jSFjdj gJUICa"
+          src="test-file-stub"
+        />
+        <span>
+          10
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
