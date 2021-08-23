@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image Card Component matches shapshot 1`] = `
+<div
+  className="sc-bdnxRM fjwxUt"
+>
+  <a
+    aria-current={null}
+    href="#/details/testId"
+    onClick={[Function]}
+  >
+    <img
+      alt="imageCard"
+      src="regularTest"
+    />
+  </a>
+</div>
+`;

@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage Component matches shapshot 1`] = `
+<div
+  className="sc-dIsUp FltwU"
+  style={
+    Object {
+      "opacity": 0,
+    }
+  }
+>
+  <div
+    className="sc-bdnxRM eMXXim"
+  >
+    <div
+      className="sc-gtsrHT dXJXAG"
+    >
+      <input
+        className="sc-hKFxyN eDeGEH"
+        onChange={[Function]}
+        placeholder="Iphone X...."
+        value=""
+      />
+      <button
+        className="sc-eCApnc hfjvEp"
+        onClick={[Function]}
+      >
+        Search
+      </button>
+    </div>
+    <div
+      className="sc-dlnjwi gRGhYz"
+    >
+      <select
+        id="orderBy"
+        name="orderBy"
+        onChange={[Function]}
+        value="latest"
+      >
+        <option
+          value="relevant"
+        >
+          Relevant
+        </option>
+        <option
+          value="latest"
+        >
+          Latest
+        </option>
+      </select>
+      <select
+        id="orientation"
+        name="orientation"
+        onChange={[Function]}
+        value="landscape"
+      >
+        <option
+          value="landscape"
+        >
+          Landscape
+        </option>
+        <option
+          value="portrait"
+        >
+          Portrait
+        </option>
+        <option
+          value="squarish"
+        >
+          Squarish
+        </option>
+      </select>
+      <select
+        id="color"
+        name="color"
+        onChange={[Function]}
+        value="blue"
+      >
+        <option
+          value="black_and_white"
+        >
+          Black and White
+        </option>
+        <option
+          value="black"
+        >
+          Black
+        </option>
+        <option
+          value="white"
+        >
+          White
+        </option>
+        <option
+          value="yellow"
+        >
+          Yellow
+        </option>
+        <option
+          value="orange"
+        >
+          Orange
+        </option>
+        <option
+          value="red"
+        >
+          Red
+        </option>
+        <option
+          value="purple"
+        >
+          Purple
+        </option>
+        <option
+          value="magenta"
+        >
+          Magenta
+        </option>
+        <option
+          value="green"
+        >
+          Green
+        </option>
+        <option
+          value="teal"
+        >
+          Teal
+        </option>
+        <option
+          value="blue"
+        >
+          Blue
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    className="sc-iqAclL juntoK"
+  >
+    <div
+      className="sc-crzoAE jdQjjQ"
+    />
+  </div>
+</div>
+`;

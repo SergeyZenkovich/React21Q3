@@ -1,5 +1,12 @@
 import React, {useState} from "react";
+import {useDispatch} from "react-redux";
 import styled from "styled-components";
+import {
+  setRequestColorParam,
+  setRequestOrderParam,
+  setRequestOrientParam,
+  setRequestQueryParam
+} from "../../redux/ActionCreators/homePageActionCreators";
 import fontP from "../../assets/fonts/MavenPro-Regular.ttf";
 
 import {
@@ -12,32 +19,25 @@ import {
 
 const Serach = ({
   query,
-  setQuery,
   searchData,
   orderBy,
-  setOrderBy,
   orient,
-  setOrientation,
-  color,
-  setColor
+  color
 }: {
   query: string;
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
   searchData: (page: number) => void;
   orderBy: string;
-  setOrderBy: React.Dispatch<React.SetStateAction<string>>;
   orient: string;
-  setOrientation: React.Dispatch<React.SetStateAction<string>>;
   color: string;
-  setColor: React.Dispatch<React.SetStateAction<string>>;
 }): JSX.Element => {
+  const dispatch = useDispatch();
   return (
     <StyledSerachBlockWithOptions>
       <StyledSearchBlock>
         <StyledSearchInput
           value={query}
           onChange={(e) => {
-            setQuery(e.target.value);
+            dispatch(setRequestQueryParam(e.target.value));
           }}
           placeholder="Iphone X...."
         />
@@ -55,7 +55,7 @@ const Serach = ({
           id="orderBy"
           value={orderBy}
           onChange={(e) => {
-            setOrderBy(e.target.value);
+            dispatch(setRequestOrderParam(e.target.value));
           }}
         >
           <option value="relevant">Relevant</option>
@@ -66,7 +66,7 @@ const Serach = ({
           id="orientation"
           value={orient}
           onChange={(e) => {
-            setOrientation(e.target.value);
+            dispatch(setRequestOrientParam(e.target.value));
           }}
         >
           <option value="landscape">Landscape</option>
@@ -78,7 +78,7 @@ const Serach = ({
           id="color"
           value={color}
           onChange={(e) => {
-            setColor(e.target.value);
+            dispatch(setRequestColorParam(e.target.value));
           }}
         >
           <option value="black_and_white">Black and White</option>

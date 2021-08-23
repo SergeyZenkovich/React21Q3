@@ -2,7 +2,7 @@ import {
   DetailsFetchingActions,
   DetailsPageStateInterface,
   FetchActionsTypeDetails
-} from "src/interfaces/reducersInterfaces";
+} from "../../interfaces/reducersInterfaces";
 
 const initialState: DetailsPageStateInterface = {
   isLoading: false,

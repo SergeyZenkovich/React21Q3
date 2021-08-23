@@ -1,8 +1,10 @@
 import React, {useEffect} from "react";
 import styled from "styled-components";
 import {motion} from "framer-motion";
-import {HomePageStateInterface} from "src/interfaces/reducersInterfaces";
-import {useActions} from "src/hooks/useActions";
+import {useDispatch} from "react-redux";
+import {getFetchedDataThunkCreator} from "../../redux/Thunks/homePageThunks";
+import {setRequestPageParam} from "../../redux/ActionCreators/homePageActionCreators";
+import {HomePageStateInterface} from "../../interfaces/reducersInterfaces";
 import Serach from "../SearchBar/SearchBar";
 import ImageCard from "../ImageCard/ImageCard";
 import Preloader from "../Preloader/Preloader";
@@ -30,25 +32,19 @@ const HomePageWithRedux = ({
   useEffect(() => {
     setActivePage("Home");
   }, []);
-  const {
-    getFetchedDataThunkCreator,
-    setRequestPageParam,
-    setRequestElementsOnPage,
-    setRequestQueryParam,
-    setRequestOrientParam,
-    setRequestOrderParam,
-    setRequestColorParam
-  } = useActions();
+  const dispatch = useDispatch();
   const requestData = (pageNumber: number) => {
-    setRequestPageParam(pageNumber);
-    getFetchedDataThunkCreator({
-      query,
-      elementsOnPage,
-      page: pageNumber,
-      orient,
-      color,
-      orderBy
-    });
+    dispatch(setRequestPageParam(pageNumber));
+    dispatch(
+      getFetchedDataThunkCreator({
+        query,
+        elementsOnPage,
+        page: pageNumber,
+        orient,
+        color,
+        orderBy
+      })
+    );
   };
 
   const ImagesCards =
@@ -68,14 +64,10 @@ const HomePageWithRedux = ({
     >
       <Serach
         query={query}
-        setQuery={setRequestQueryParam}
         searchData={requestData}
         orderBy={orderBy}
-        setOrderBy={setRequestOrderParam}
         orient={orient}
-        setOrientation={setRequestOrientParam}
         color={color}
-        setColor={setRequestColorParam}
       />
       <StyledCardsBlockWithPagination>
         <StyledCardsBlock>{homeState.isFetching ? <Preloader /> : ImagesCards}</StyledCardsBlock>
@@ -87,9 +79,7 @@ const HomePageWithRedux = ({
             setFetchElems={requestData}
           />
         ) : null}
-        {homeState.totalElementsCount >= 1 ? (
-          <Selector elementsOnPage={elementsOnPage} setElementsOnPage={setRequestElementsOnPage} />
-        ) : null}
+        {homeState.totalElementsCount >= 1 ? <Selector elementsOnPage={elementsOnPage} /> : null}
       </StyledCardsBlockWithPagination>
     </HomePageBlock>
   );

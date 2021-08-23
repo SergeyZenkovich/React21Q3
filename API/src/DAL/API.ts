@@ -1,7 +1,6 @@
 import {FetchObject} from "src/interfaces/ComponentsInterfaces";
 import axios from "axios";
 import {
-  IdParameterInterface,
   QueryParametersInterface,
   RequestResponseInterface
 } from "../interfaces/ComponentsInterfaces";

@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar Component matches shapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: 140px;
+  background-color: #000a;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 0;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c4 select {
+  margin: 10px 0;
+  padding: 0 10px;
+  height: 40px;
+  font-family: "CardTextFont";
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 75%;
+  height: 45px;
+  padding: 0 10px;
+  font-family: "CardTextFont";
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+}
+
+.c3 {
+  width: 15%;
+  height: 45px;
+  margin: 0 5px;
+  font-family: "CardTextFont";
+  border: none;
+  font-size: 1em;
+  border-radius: 3px;
+  background-color: #ddde;
+}
+
+.c3:hover {
+  cursor: pointer;
+  background-color: #eeef;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <input
+      className="c2"
+      onChange={[Function]}
+      placeholder="Iphone X...."
+      value="testQuery"
+    />
+    <button
+      className="c3"
+      onClick={[Function]}
+    >
+      Search
+    </button>
+  </div>
+  <div
+    className="c4"
+  >
+    <select
+      id="orderBy"
+      name="orderBy"
+      onChange={[Function]}
+      value="relevant"
+    >
+      <option
+        value="relevant"
+      >
+        Relevant
+      </option>
+      <option
+        value="latest"
+      >
+        Latest
+      </option>
+    </select>
+    <select
+      id="orientation"
+      name="orientation"
+      onChange={[Function]}
+      value="landscape"
+    >
+      <option
+        value="landscape"
+      >
+        Landscape
+      </option>
+      <option
+        value="portrait"
+      >
+        Portrait
+      </option>
+      <option
+        value="squarish"
+      >
+        Squarish
+      </option>
+    </select>
+    <select
+      id="color"
+      name="color"
+      onChange={[Function]}
+      value="blue"
+    >
+      <option
+        value="black_and_white"
+      >
+        Black and White
+      </option>
+      <option
+        value="black"
+      >
+        Black
+      </option>
+      <option
+        value="white"
+      >
+        White
+      </option>
+      <option
+        value="yellow"
+      >
+        Yellow
+      </option>
+      <option
+        value="orange"
+      >
+        Orange
+      </option>
+      <option
+        value="red"
+      >
+        Red
+      </option>
+      <option
+        value="purple"
+      >
+        Purple
+      </option>
+      <option
+        value="magenta"
+      >
+        Magenta
+      </option>
+      <option
+        value="green"
+      >
+        Green
+      </option>
+      <option
+        value="teal"
+      >
+        Teal
+      </option>
+      <option
+        value="blue"
+      >
+        Blue
+      </option>
+    </select>
+  </div>
+</div>
+`;

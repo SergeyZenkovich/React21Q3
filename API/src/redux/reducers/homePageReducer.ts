@@ -2,7 +2,7 @@ import {
   FetchActions,
   FetchActionsType,
   HomePageStateInterface
-} from "src/interfaces/reducersInterfaces";
+} from "../../interfaces/reducersInterfaces";
 
 const initialState: HomePageStateInterface = {
   totalElementsCount: -1,

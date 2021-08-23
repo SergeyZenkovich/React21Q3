@@ -3,23 +3,21 @@ import {useParams} from "react-router-dom";
 import {motion} from "framer-motion";
 import styled from "styled-components";
 
-import {DetailsPageStateInterface} from "src/interfaces/reducersInterfaces";
+import {useDispatch} from "react-redux";
+import {getDataByIDThunkCreator} from "../../redux/Thunks/detailsPageThunks";
+import {DetailsPageStateInterface} from "../../interfaces/reducersInterfaces";
 import {StyledDetailsPage} from "../DetailsPage/DetailsPageStyling";
 import Card from "../Card/Card";
-import {useActions} from "../../hooks/useActions";
 
 const DetailsPageWithRedux = ({
-  detailsState,
-  setActivePage
+  detailsState
 }: {
   detailsState: DetailsPageStateInterface;
-  setActivePage: React.Dispatch<React.SetStateAction<string>>;
 }): JSX.Element => {
   const {id} = useParams<{id?: string}>();
-  const {getDataByIDThunkCreator} = useActions();
+  const dispatch = useDispatch();
   useEffect(() => {
-    getDataByIDThunkCreator(id);
-    setActivePage("");
+    dispatch(getDataByIDThunkCreator(id));
   }, []);
   return (
     <StyledDetailsPage
