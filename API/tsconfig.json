@@ -28,6 +28,7 @@
   },
   "include": [
     "./src/",
+    "./renderTemplate.ts",
     "./webpack.config.ts",
     "./declarations.d.ts",
     "types"
