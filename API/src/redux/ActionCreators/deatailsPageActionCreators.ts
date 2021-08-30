@@ -3,7 +3,7 @@ import {
   FetchActionsTypeDetails,
   LoadingDetailsAction,
   SetDetailsElementAction
-} from "src/interfaces/reducersInterfaces";
+} from "../../interfaces/reducersInterfaces";
 
 export const LoadingActionCreator = (): LoadingDetailsAction => ({
   type: FetchActionsTypeDetails.TOGGLE_FETCHING

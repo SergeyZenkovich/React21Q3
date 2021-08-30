@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
-import {getDataById} from "src/DAL/API";
-import {DetailsFetchingActions} from "src/interfaces/reducersInterfaces";
+import {getDataById} from "../../DAL/API";
+import {DetailsFetchingActions} from "../../interfaces/reducersInterfaces";
 import {
   LoadingActionCreator,
   SetDetailsElementActionCreator

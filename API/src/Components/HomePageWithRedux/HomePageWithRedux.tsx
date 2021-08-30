@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import styled from "styled-components";
 import {motion} from "framer-motion";
 import {HomePageStateInterface} from "src/interfaces/reducersInterfaces";
-import {useActions} from "src/hooks/useActions";
+import {useActions} from "../../hooks/useActions";
 import Serach from "../SearchBar/SearchBar";
 import ImageCard from "../ImageCard/ImageCard";
 import Preloader from "../Preloader/Preloader";

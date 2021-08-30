@@ -1,12 +1,11 @@
-import React from 'react';
-import App from "./src/App";
+import React from "react";
+import App from "./App";
 
-import './app.css';
-
+import "./styles.css";
 
 export function renderApp() {
   return (
-    <App/>
+    <App />
     // <RouterExample />
     // <RouterWithDataExample />
   );

@@ -13,7 +13,7 @@ function createConfig({
 
   let dist = join(root, 'dist', target);
 
-  let IS_SERVER = target === 'server';
+  let IS_SERVER = target === 'node';
   let IS_CLIENT = target === 'client';
 
   return {
@@ -25,8 +25,9 @@ function createConfig({
 
     output: {
       path: dist,
+      publicPath: '/',
+      assetModuleFilename: 'assets/[hash][ext]',
       filename: name,
-      chunkFilename: name,
     },
 
     resolve: {
@@ -51,7 +52,6 @@ function createConfig({
       new webpack.DefinePlugin({
         IS_CLIENT: JSON.stringify(IS_CLIENT),
         IS_SERVER: JSON.stringify(IS_SERVER),
-        'typeof window': JSON.stringify(IS_CLIENT ? 'object' : 'undefined')
       }),
     ],
   };

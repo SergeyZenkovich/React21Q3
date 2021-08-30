@@ -1,5 +1,7 @@
 import {useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
+import {getDataByIDThunkCreator} from "../redux/Thunks/detailsPageThunks";
+import {getFetchedDataThunkCreator} from "../redux/Thunks/homePageThunks";
 import {
   setRequestPageParam,
   setRequestQueryParam,
@@ -7,9 +9,7 @@ import {
   setRequestOrderParam,
   setRequestColorParam,
   setRequestElementsOnPage
-} from "src/redux/ActionCreators/homePageActionCreators";
-import {getDataByIDThunkCreator} from "src/redux/Thunks/detailsPageThunks";
-import {getFetchedDataThunkCreator} from "src/redux/Thunks/homePageThunks";
+} from "../redux/ActionCreators/homePageActionCreators";
 
 export const useActions = () => {
   const dispatch = useDispatch();
