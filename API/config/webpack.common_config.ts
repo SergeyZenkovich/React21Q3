@@ -24,6 +24,7 @@ function createConfig({
     // mode: 'production',
 
     output: {
+      globalObject: "this",
       path: dist,
       publicPath: '/',
       assetModuleFilename: 'assets/[hash][ext]',
@@ -43,7 +44,10 @@ function createConfig({
         {
           test: /\.tsx?$/,
           exclude: /node_modules/,
-          use: 'ts-loader',
+          loader: 'ts-loader',
+          options:{
+            transpileOnly: true
+          }
         },
       ],
     },
@@ -52,6 +56,7 @@ function createConfig({
       new webpack.DefinePlugin({
         IS_CLIENT: JSON.stringify(IS_CLIENT),
         IS_SERVER: JSON.stringify(IS_SERVER),
+        'typeof window': JSON.stringify(IS_CLIENT ? 'object' : 'undefined')
       }),
     ],
   };

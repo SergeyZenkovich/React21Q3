@@ -29,6 +29,7 @@
         "@types/webpack-dev-server": "^3.11.5",
         "@typescript-eslint/eslint-plugin": "^4.28.4",
         "@typescript-eslint/parser": "^4.28.4",
+        "babel-plugin-styled-components": "^1.13.2",
         "eslint": "^7.31.0",
         "eslint-config-airbnb-typescript-prettier": "^4.2.0",
         "eslint-config-prettier": "^8.3.0",
@@ -71,6 +72,6 @@
         "redux-devtools-extension": "^2.13.9",
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",
-        "styled-components": "^5.3.0"
+        "styled-components": "^5.3.1"
     }
 }

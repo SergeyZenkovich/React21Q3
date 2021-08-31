@@ -74,6 +74,6 @@ app.get("*", async (req, res) => {
   );
 });
 
-app.listen(3000, () => {
-  console.log(`Server is listening on port: 3000`);
+app.listen(5005, () => {
+  console.log(`Server is listening on port: 5005`);
 });

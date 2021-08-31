@@ -5,12 +5,13 @@ import {BrowserRouter} from "react-router-dom";
 import {createStore, Store} from "redux";
 
 import {renderApp} from "./renderApp";
+import {restoreDataOnClient} from "./restoreDataOnClient";
 // import {restoreDataOnClient} from "./data/restoreDataOnClient";
 // import {reducer} from "./reducer";
 
 function run(store?: Store) {
   hydrate(
-    renderApp(),
+    // renderApp(),
 
     // (
     //   <BrowserRouter>
@@ -18,19 +19,14 @@ function run(store?: Store) {
     //   </BrowserRouter>
     // ),
 
-    // (
-    //   <Provider store={store}>
-    //     <BrowserRouter>
-    //       { renderApp() }
-    //     </BrowserRouter>
-    //   </Provider>
-    // ),
-
+    <Provider store={store}>
+      <BrowserRouter>{renderApp()}</BrowserRouter>
+    </Provider>,
     document.getElementById("root")
   );
 }
 
 // const store = createStore(reducer, restoreDataOnClient());
-const store = createStore(() => {});
+const store = createStore(() => {}, restoreDataOnClient());
 
 run(store);
